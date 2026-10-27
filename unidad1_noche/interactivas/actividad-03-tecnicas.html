@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>KrakeDev · Técnicas de IA/ML</title><link href="style.css" rel="stylesheet"/><style>#kd-sequence{position:sticky;bottom:0;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;margin:24px auto 0;background:#102b42;border:1px solid #5384a8;border-radius:14px;color:white;max-width:1100px;font-family:system-ui,sans-serif}#kd-sequence a{display:inline-block;background:#245b78;border:1px solid #6196b4;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700}#kd-sequence a:hover{background:#35769a}#kd-sequence small{color:#bed2e4}#kd-sequence .disabled{opacity:.35}</style></head><body>
+<header><strong>KRAKE<span style="color:#f34d5b">DEV</span></strong></header>
+<main><span class="tag">Actividad 3</span><h1>¿Qué técnica de IA/ML utilizarías?</h1><p class="intro">Lee cada situación y arrástrala al espacio que consideres adecuado. Cuando hayas colocado todas las tarjetas, podrás revisar tus respuestas.</p>
+<div class="panel"><h2>Situaciones</h2><div class="bank" id="bank"></div><div class="cols"><div class="zone" data-zone="classification"><h3>Classification (Clasificación)</h3><div class="items"></div></div><div class="zone" data-zone="regression"><h3>Regression (Regresión)</h3><div class="items"></div></div><div class="zone" data-zone="clustering"><h3>Clustering (Agrupamiento)</h3><div class="items"></div></div></div>
+<div class="tools"><button class="btn primary" disabled="" id="check">Calificar</button><button class="btn" id="reset">Reiniciar</button><span class="pill" id="count">0 de 9 ubicadas</span></div><div aria-live="polite" class="feedback" id="notice"></div><p class="hint">Arrastra las tarjetas; también puedes seleccionar una y tocar el grupo de destino. Es posible moverlas y volver a calificar.</p></div>
+</main><script src="common.js"></script><script>
+const cases=[
+['a1','El banco debe decidir si una transacción nueva es Fraude o Válido.','classification'],
+['a2','Una inmobiliaria debe estimar el precio en dólares de una casa nueva.','regression'],
+['a3','El supermercado quiere descubrir segmentos de clientes sin grupos previamente definidos.','clustering'],
+['a4','Una fábrica debe decidir si una fotografía muestra una pieza Correcta o Defectuosa.','classification'],
+['a5','Una empresa de transporte quiere estimar los minutos necesarios para una entrega.','regression'],
+['a6','Una tienda quiere encontrar conjuntos de productos con comportamientos de venta similares, sin categorías previas.','clustering'],
+['a7','Un filtro debe identificar un correo recibido como Spam o No spam.','classification'],
+['a8','Una empresa quiere estimar el consumo eléctrico del próximo día en kWh.','regression'],
+['a9','Un servicio de música quiere descubrir grupos de oyentes con gustos parecidos, sin categorías preestablecidas.','clustering']
+];
+const bank=document.querySelector('#bank');
+for (const [id,desc] of cases){let c=document.createElement('div');c.className='chip';c.dataset.id=id;c.tabIndex=0;c.textContent=desc;draggable(c);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click();}});bank.append(c)}
+const chips=()=>[...document.querySelectorAll('.chip')];
+function update(){let n=chips().filter(c=>c.parentElement!==bank).length;document.querySelector('#count').textContent=n+' de 9 ubicadas';document.querySelector('#check').disabled=n!==9;document.querySelector('#notice').textContent='';}
+function place(id,z){let c=chips().find(x=>x.dataset.id===id);if(!c)return;let dest=z.id==='bank'?bank:z.querySelector('.items')||z;dest.append(c);window.selected=null;clearMark();update()}
+document.querySelectorAll('.zone').forEach(z=>setupZone(z,place));setupZone(bank,place);
+document.querySelector('#check').addEventListener('click',()=>{let ok=0;for(const c of chips()){const target=cases.find(x=>x[0]===c.dataset.id)[2];let good=c.closest('.zone')?.dataset.zone===target;c.classList.add(good?'ok':'bad');if(good)ok++;}document.querySelector('#notice').textContent=ok+' de 9 correctas. Verde: correcta; rojo: revisa la técnica e intenta de nuevo.';});
+document.querySelector('#reset').addEventListener('click',()=>{chips().forEach(c=>bank.append(c));clearMark();update()});update();
+</script><div id="kd-sequence" role="navigation"><a href="../ampliacion/10.html">← Anterior</a><a href="../index.html">☷ Menú</a><a href="../ampliacion/11.html">Siguiente →</a></div></body></html>
