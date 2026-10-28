@@ -1,0 +1,5 @@
+KrakeDev — Clase 1, 80 minutos — Alumnos
+Abrir index.html.
+Recorrido: Lumas y Nexus → Emparejamiento → 13 láminas → Blooket (5 preguntas) → Actividad 3 AWS (5 preguntas).
+Para jugar Blooket, importar BLOOKET_5_PREGUNTAS_80MIN.csv en blooket.com.
+La introducción institucional se entrega en un paquete separado.

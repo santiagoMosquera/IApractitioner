@@ -1,0 +1,12 @@
+﻿"Blooket
+Import Template",,,,,,,
+Question #,Question Text,Answer 1,Answer 2,"Answer 3
+(Optional)","Answer 4
+(Optional)","Time Limit (sec)
+(Max: 300 seconds)","Correct Answer(s)
+(Only include Answer #)"
+1,"En una fábrica, ¿qué representan las 20.000 fotografías usadas para preparar el modelo?",Las etiquetas del modelo,Los datos de entrenamiento,Las predicciones nuevas,Las reglas del motor de inferencia,25,2
+2,"En esas fotografías, ¿qué son «Correcto» y «Defectuoso»?",Los algoritmos utilizados,Las etapas del entrenamiento,Los patrones de imagen,Las etiquetas de los ejemplos,25,4
+3,Un banco utiliza transacciones históricas para ajustar un modelo. ¿Qué está haciendo?,Training (Entrenamiento),Inference (Inferencia),Aplicación de reglas de MYCIN,Publicación del resultado,25,1
+4,El banco recibe una transacción nueva y su modelo entrenado predice «Fraude». ¿Qué proceso ejecuta?,Etiquetado de datos,Entrenamiento,Inference (Inferencia),Recolección histórica,25,3
+5,¿Qué afirmación describe correctamente IA y Machine Learning?,Toda IA utiliza Machine Learning,Machine Learning es un subconjunto de IA,Los sistemas expertos siempre entrenan modelos,IA y Machine Learning son conceptos idénticos,25,2
