@@ -1,0 +1,17 @@
+﻿"Blooket
+Import Template",,,,,,,
+Question #,Question Text,Answer 1,Answer 2,"Answer 3
+(Optional)","Answer 4
+(Optional)","Time Limit (sec)
+(Max: 300 seconds)","Correct Answer(s)
+(Only include Answer #)"
+1,Un supermercado quiere descubrir grupos de clientes sin etiquetas. ¿Qué Learning Type corresponde?,Supervised Learning,Unsupervised Learning,Reinforcement Learning,Regression,25,2
+2,¿Qué técnica identifica grupos de clientes similares sin conocer categorías objetivo?,Classification,Regression,Clustering,Inference,25,3
+3,¿Qué algoritmo se utiliza habitualmente para Clustering?,Decision Tree,Linear Regression,Q-Learning,K-Means,25,4
+4,Un banco entrena con transacciones etiquetadas Fraude/Válido. ¿Qué técnica utiliza?,Classification,Regression,Clustering,Reinforcement,25,1
+5,Un sistema estima el precio numérico de una casa. ¿Qué técnica aplica?,Clustering,Regression,Classification,Reinforcement,25,2
+6,¿Cuál afirmación es correcta sobre Deep Learning?,No pertenece a ML,Solo funciona con reglas,Es un subconjunto de ML,No utiliza redes neuronales,25,3
+7,"De todas las alarmas de incendio emitidas, ¿cuántas eran incendios reales?",Accuracy,Recall,F1 Score,Precision,25,4
+8,Un detector debe evitar que se le escapen incendios reales. ¿Qué métrica prioriza?,Recall,Accuracy,Precision,Specificity,25,1
+9,"¿Qué métrica mide los aciertos totales, tanto positivos como negativos?",F1 Score,Accuracy,Recall,Precision,25,2
+10,¿Qué métrica combina Precision y Recall mediante media armónica?,Accuracy,Recall,F1 Score,Clustering,25,3

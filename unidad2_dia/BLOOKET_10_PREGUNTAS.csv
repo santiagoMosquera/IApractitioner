@@ -1,0 +1,17 @@
+﻿"Blooket
+Import Template",,,,,,,
+Question #,Question Text,Answer 1,Answer 2,"Answer 3
+(Optional)","Answer 4
+(Optional)","Time Limit (sec)
+(Max: 300 seconds)","Correct Answer(s)
+(Only include Answer #)"
+1,¿Qué Learning Type corresponde a un supermercado que quiere descubrir grupos sin categorías predefinidas?,Unsupervised Learning,Supervised Learning,Reinforcement Learning,Fine-tuning de reglas,25,1
+2,¿Qué AI/ML Technique se utiliza para agrupar clientes según sus similitudes?,Regression,Classification,Reinforcement Learning,Clustering,25,4
+3,Un banco entrena con transacciones marcadas Fraude/Válido. ¿Qué Learning Type emplea?,Unsupervised Learning,Supervised Learning,Reinforcement Learning,Clustering,25,2
+4,¿Qué AI/ML Technique corresponde a predecir el precio de una casa?,Classification,Clustering,Regression,Anomaly Detection,25,3
+5,¿Cuál es un algoritmo de Clustering que utiliza centros de grupos?,Decision Tree,Linear Regression,CNN,K-Means,25,4
+6,"En K-Means entrenado, ¿cómo se asigna habitualmente un cliente nuevo a un grupo?",Al centroide más cercano,Por la etiqueta histórica conocida,Por una recompensa recibida,A una regla médica manual,25,1
+7,Un robot aprende rutas mediante acciones y recompensas. ¿Qué Learning Type utiliza?,Supervised Learning,Unsupervised Learning,Reinforcement Learning,Regression,25,3
+8,"¿Cuál afirmación describe la relación entre IA, ML y DL?",Todo ML necesita Deep Learning,Deep Learning es un subconjunto de ML,Deep Learning contiene a la IA,Un sistema experto es Deep Learning,25,2
+9,"¿Cuál de los siguientes es Machine Learning tradicional, no Deep Learning?",K-Means,Una red neuronal profunda,Una CNN profunda,Un transformer profundo,25,1
+10,Una fábrica usa fotografías etiquetadas y una CNN profunda para detectar defectos. ¿Qué combinación de tipo de aprendizaje y tecnología utiliza?,Unsupervised + Clustering,Reinforcement + Regression,IA basada únicamente en reglas,Supervised Learning + Deep Learning,25,4

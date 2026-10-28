@@ -1,0 +1,12 @@
+﻿"Blooket
+Import Template",,,,,,,
+Question #,Question Text,Answer 1,Answer 2,"Answer 3
+(Optional)","Answer 4
+(Optional)","Time Limit (sec)
+(Max: 300 seconds)","Correct Answer(s)
+(Only include Answer #)"
+1,¿Qué representa una etiqueta (label) en un ejemplo de entrenamiento?,El costo de usar el modelo,La respuesta conocida asociada al ejemplo,La velocidad del servidor,Un error de compilación,25,2
+2,¿Qué sucede durante el entrenamiento de un modelo de ML?,Se ajustan sus parámetros con datos,Se presenta un informe final,Se publica un sitio web,Se reinicia la memoria del navegador,25,1
+3,¿Qué significa inference en Machine Learning?,Crear nuevas etiquetas manualmente,Ajustar los parámetros de entrenamiento,Utilizar un modelo entrenado para predecir,Eliminar ejemplos incorrectos,25,3
+4,¿Cuál de estos sistemas puede ser IA sin Machine Learning?,Un sistema experto basado en reglas y motor de inferencia,Un clasificador entrenado con imágenes,Un modelo que aprende patrones de datos,Un sistema de predicción entrenado,25,1
+5,"Si el modelo decide entre “fraude” y “legítima”, ¿qué tarea realiza?",Regresión,Clustering,Generación de texto,Clasificación,25,4

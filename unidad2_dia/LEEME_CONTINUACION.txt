@@ -1,0 +1,7 @@
+KRAKEDEV · CONTINUACIÓN MAÑANA
+
+Abrir index.html. El recorrido comienza en interactivas/clientes.html, sigue el contenido ampliado original de ayer (incluye su Blooket y 10 preguntas AWS existentes), luego el sensor interactivo, la matriz editable, el banco y termina con un nuevo Blooket.
+
+Para el Blooket nuevo: BLOOKET_FINAL_10.csv (formato de importación).
+
+Todo funciona localmente, salvo el acceso externo a Blooket.
