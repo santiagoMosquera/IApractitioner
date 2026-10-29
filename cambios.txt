@@ -1,0 +1,286 @@
+Hagamos algunos cambios:
+
+1. Cambiemos el ejercicio inicial
+En configuración media, tengamos 2 alertas falsas en lugar de 1
+Esto cambiará todos los cálculos 
+
+En los datos del sensor, vamos a dejar para que ingresen los valores
+Agregamos un card con el valor 
+	INCENDIOS REALES: 4
+Otro 
+	NORMALES REALES: 16
+
+EL alumno ahora ingresa estos valores en cada caso y valida. Si ya es válido se quedan guardados
+un botón limpiar para volver a hacer el ejercicio
+	Incendios detectados: 
+	Incendios marcados como normales (incendios omitidos): 
+	Normales que detectó como incendios(falsas alarmas):
+	Normales bien detectados:
+
+2. En /04-matriz.html
+Por favor cuando decimos POSITIVO o NEGATIVO para la tabla de confusión, nosotros decimos esta clase es POSITIVO y la otra clase es NEGATIVO, entonces los valores ( + o - ) solo van junto a lo que el modelo infiere: INFIERE INCENDIO (+) INFIERE NORMAL (-) . en las entradas de Real, no iría los signos, eso es la primera confusión. Ante de lleanr l atabla si expliquemso que nosotros elegimos a que clase le damos +, en este caso a incendio. Los valroes de Verdadero o falso se dan en función de que la predicción coincida con lo real o no coincida. Usemos en toda la narrativa, incendo o normal, no usemos "no incendio"
+
+En esta página /04b-matriz-media.html
+
+Dice:
+Resultados observados: calibración MEDIA
+Se realizaron 20 pruebas: 4 incendios reales y 16 situaciones normales. El detector predijo 4 incendios y 16 situaciones sin incendio.
+Estaría mal, reemplazar por:
+Se realizaron 20 pruebas: 4 incendios reales y 16 situaciones normales
+El detector predijo: 
+   5 incendios:
+	3 incendios que si eran incendios
+	2 incendios que no era incendios
+
+   16 casos normales:	
+	15 casos normales que si eran nomales
+	1 caso normal que en realidad era incendio
+
+
+Con esta información llenemos la tabla de confusión:
+Pones el formato de tabla como matriz, con los signos positivo y el alumno va llenando en la tabla las siglas y luego los valores. Usa el modelo de tabla que ya afinamos en 04-matriz, le agregas una caja junto  a la selección de casillas
+
+
+en 02-recall.html
+
+Cambia esto:
+RECALL (título está bien)
+Que no se nos escape ninguno!!
+Qué mide?: De los incendios que DEBO atrapar, qué porcentaje realmente atrapé
+El análisis parte de: EL DATO REAL DE INCENDIOS
+
+En la tabla coloca:
+Incendios reales (VP + FN)
+ y en los valores pones 4+0   4+0  3+1   2+2
+
+Al final en la tabla de recall calculado coloca las 2 filas de la tabla inciial
+y le agregas al final la fila del recall, queda una tabla de 3 filas
+
+Agregamos una lámina más que tenga:
+UN título que diga al recall solo le importa: 
+	QUE DETECTES LOS INCENDIOS
+	Qué tan bien detectaste los incendios
+ 
+ 4 imágenes
+recall1.png
+recall2.png
+recall3.png
+recall4.png
+una debajo de otra
+
+Junto a cada imagen el porcentaje de recall de cada una, en la 3 va a ser 75%, en la 4 va a ser 25%
+
+Luego la lámina de Precisión
+
+Qué mide?? De todo lo que me dijiste que es incendio, qué realmente es incendio
+Modifica la tabla
+Incendios inferidos (VP + FP)		16+4   5+4   3+1   2+0
+Incendios detectados correctamente	
+
+La nota de PRECISION: de todas las alarmas que activé, ¿en cuales tenia razón? Precisión VP(VP+FP), agrega el denomidador representa todos los valores que el modejo infirió que iban a ser INCENDIOS
+
+Al final de la tabla, toma la primera tabla y agrega la precisión. Todavía no pongas el recall,
+solo la precisión
+
+
+Una nueva lámina en el título PRECISION
+El análisis se basa en lo que el modelo infirió como POSITIVO
+marquemos Precisión Positivo y las 2P les ponemos de color rojo
+Luego añades la captura
+precision_tabla.png
+
+Luego agregamos el dibujo
+precision1.png
+precision2.png
+precision3.png
+precision4.png
+
+junto a cada una el nivel de precisión
+Si tengo un recall del 100%, detecté todos los incendios?
+	SI/NO
+
+ACCURACY
+Mide cuanto hiciste bien en POSITIVO (incendios) y en NEGATIVO (normal)
+Mide el porcentaje de ACIERTOS en incendio y normal
+EXACTITUD GLOBAL
+
+En la tabla 
+Total de situaciones evaluadas (VP+VN+FP+FN) 
+
+En la nota agregar. El denominador representa el total de casos
+
+En la tabla agregar las columnas y al final el accuracy
+
+Al final una pregunta interactiva:
+	Si tengo una PRECISION del 100%, puedo concluir que mi modelo nunca falla, está perfecto?
+		SI/NO
+
+Luego nueva lámina, donde colocamos
+ACCURACY
+exactitud GLOBAL: aciertos en incendios y haciertos en normal
+Aciertos en positivo y aciertos en negativo
+
+Luego agregamos
+accuracy_tabla.png
+accuracy1.png
+accuracy2.png
+accuracy3.png
+accuracy4.png
+
+junto a cada uno los porcentajes de accuracy
+
+
+Nueva diapositiva con una tabla de los 4 casos, y las 4 métricas calculadas
+las filas iniciales de la tabla:
+Incendios detectados correctamente
+Incendios totales
+Incendios que el modelo infirió (correcta e incorectamente)
+Normales detectados correctamente
+Accuracy
+Recall
+Precisión
+
+Nueva diapositiva
+Arrastre
+
+RECALL
+ACCURACY
+PRECISION
+RECALL
+ACCURACY
+PRECISION
+
+De los que el modelo dijo que eran incendios, cuales realmente si lo eran
+Del total de incendios, qué porcentaje logró detectar
+Aciertos en incendios y aciertos en normales, sobre el total de casos
+
+Incendios que infirió el modelo / Total de incendios reales
+Incendios que acertó el modelo / Total de incendios que infirió el modelo
+Total de aciertos (normales e incendios) / Total de casos
+
+
+
+08-banco-sin-metricas.html
+Agreguemos una fila: Transacciones legitimas registradas correctamente
+modifiquemos las Transacciones legitimas señaladas como fraude Modelo A 6, Modelo B 18
+
+Luego mostramos las métricas está perfecto
+
+Y hagamos preguntas:
+En este caso los accuracy son similares, pero un modelo deja pasar más fraudes que el otro,
+por qué pasa esto?
+
+	El accuracy está mal calculado, no pueden tener porcentajes igual de altos dos modelos
+	que son tan diferentes en la detección de fraudes
+	El accuracy, analiza los ACIERTOS de fraude y de transacciones legítimas, como hay muchas
+	transacciones legítimas acertadas en ambos modelos, el valor final es similar.
+	El accuracy indica si el modelo funciona bien, por lo tanto los dos modelos funcionan 
+	bien para detectar fraudes
+
+Si mi prioridad como banco es detectar la mayor cantidad de fraudes, me puedo basar en el accuracy?
+	SI / NO
+
+Si debo elegir entre los 2 modelos y lo que más me preocupa y me cuesta son los fraudes no detectados, qué métrica debo elegir
+	Accuracy
+	Recall
+	F1
+	Precisión
+Los dos modelos tienen la misma precisión, pero uno deja pasar solo 1 fraude, el otro 7
+Por que se da esto?
+	Porque la precisión no toma en cuenta los fraudes no detectados, solo 
+	analiza el porcentaje de aciertos en los fraudes que predijo
+	
+	Está mal calculado, no pueden tener los dos la misma precisión, si el uno deja pasar fraudes
+
+Respecto al accuracy
+	El accuracy en este caso es muy relevante, porque para el banco tiene igual importancia que acierte en fraudes y en legitimas
+	El accuracy no es relevante porque hay muchísimas transacciones legitimas y pocas fraudulentas, pero al banco le impacta más que acierte en los fraudes
+	El accuracy no importa nunca, en ningún caso
+
+
+Otra página con este ejercicio
+
+	Dos dibujos de MODELOS 
+	
+	En Facebook, se implementa un modelo para bloquear el contenido no deseado. Según se 
+	va afinando se tienen los siguientes resultados.
+
+	De una muestra de 1000, se tienen los siguientes resultados
+								RESULTADO A      RESULTADO B    RESULTADO C   
+	Contenido TOXICO detectado correctamente		   2                 1              2
+	Contenido detectado como TOXICO pero era legítimo          5                 5              20
+	Contenido TOXICO real omitido				   1                 2              1
+	
+	Métricas
+	Recall							  2/3               1/3             2/3
+	Precisión                                                 2/7               1/6             2/22
+	Accuracy (me das completando el concepto)                                                 
+
+	Preguntas:
+	Si quiero lograr una mejor detección de las publicaciones toxicas que metrica consideraría
+		RECALL
+		PRECISION
+		f1 SCORE
+		ACCURACY
+
+	En qué resultado, tengo menos usuarios descontentos, porque les bloquearon las cuentas de forma errada, porque su contenido fue catalogado como toxico injustamente?
+		A
+		B
+		C
+	
+	Qué métrica afecta directamente a estos usuarios que les bloquearon injustamente
+		Precisión
+		Recall
+		Accuracy
+
+	Si tengo que priorizar entre detectar toxicas y tener el menor numero de usuarios descontentos, mi prioridad va a ser la menor cantidad de usaurios descontentos, que métirca me importa más entonces
+		Precisión
+		Recall
+		Accuracy
+
+
+	Si se te ocurren pregunats que aporten a afianzar el conocimiento hazlo
+
+		CONCLUSION: Una mayor precisión indica menos Falsos positivos (publicaciones que no eran toxicas, pero se detectaron como tal)
+
+	OTRA PAGINA
+
+	Para el accuracy
+	Lista de 100, hay 30 facturas
+	Arma lo de las facturas y NV, vamos a determinar FACTURA como (+)
+	Pongamoas los valores asi mismo en tres casos, bien dispersos respecto a detectó mal factura, omitió factura, etc, detectó bien factura, detectó bien nv etc
+	Luego ponemos las métricas. asi mismo 3 modelos
+
+	Luego el análisis
+		Del recall diferente en los 3 casos respecto a NV
+		La precisión distinta en los 3 casos
+		El accuracy va a variar
+	
+	EN este caso, me afecta más que detecte mal una factura o una NV? considere que el costo de corregir es el mismo
+		Factura
+		Nota de venta
+		Me afectan igual
+
+	QUé métrica me conviene analizar más en este caso?
+		Precisión: del total que dije que son facturas, cuantas realmente son
+		Recall: habían 30 facturas, cuantas realmente logré detectar
+		Accuracy: aciertos en facturas(+) y aciertos en nv(-).
+
+	Que resultado elegiría?
+		A
+		B
+		C
+
+	Dame algún ejemplo donde sea importante el F1, no le cacho		
+		
+
+	Luego de esto, arma preguntas tipo certificación de estas métricas, usando ejemplos tipo certificación de escenarios
+	y también conceptos que maneja la certificación en estas métricas
+
+	
+
+
+
+
+
+
