@@ -1,3 +1,2 @@
-KrakeDev Clase 1 120 min — Inicio: index.html. Usa Anterior / Siguiente para recorrer todas las actividades en orden. La introducción inicial se mantiene en su paquete aprobado aparte.
-
-Actualización: se agregan dos láminas del automóvil autónomo antes de Blooket. El CSV incorpora respuesta Supervised Learning + Deep Learning en pregunta 10.
+KrakeDev · Clase 2 (mañana)
+Abra index.html para iniciar.
