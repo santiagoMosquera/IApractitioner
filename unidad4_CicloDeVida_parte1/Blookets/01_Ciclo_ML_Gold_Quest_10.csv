@@ -1,0 +1,11 @@
+﻿Question #,Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit (sec),Correct Answer(s)
+1,¿Qué hacemos al definir el objetivo de un proyecto de ML?,Limpiar registros históricos,Poner el modelo en producción,Precisar el problema que queremos resolver,Evaluar predicciones nuevas,30,3
+2,¿Para qué sirve preparar y explorar los datos?,Publicar predicciones en una app,Elegir un objetivo empresarial nuevo,Dejar de usar datos históricos,Revisar la información y corregir problemas,30,4
+3,¿Qué ocurre al entrenar un modelo?,Recibe automáticamente un informe de costos,Se convierte en una base de datos,Deja de necesitar comprobaciones,Aprende patrones de ejemplos históricos,30,4
+4,¿Qué significa desplegar e inferir?,Usar el modelo para predecir casos nuevos,Revisar errores de digitación en registros,Definir la pregunta inicial,Escoger libros para aprender ML,30,1
+5,San Pedro decide predecir a dónde corresponde cada alma. ¿Qué fase es?,Entrenar el modelo,Definir el objetivo,Seleccionar variables,Monitorear y mejorar,30,2
+6,San Pedro detecta expedientes incompletos y duplicados. ¿Qué fase es?,Entrenar el modelo,Definir el objetivo,Preparar y explorar datos,Desplegar e inferir,30,3
+7,Un estudiante resuelve ejercicios para aprender antes de una prueba. ¿Qué fase representa?,Entrenar el modelo,Definir el objetivo,Desplegar e inferir,Preparar y explorar datos,30,1
+8,Llega el examen real y el estudiante responde preguntas nuevas. ¿Qué fase representa?,Preparar y explorar datos,Desplegar e inferir,Seleccionar variables,Definir el objetivo,30,2
+9,Una empresa quiere predecir retrasos en sus entregas. ¿Cuál es el primer paso?,Elegir colores de la aplicación,Publicar la predicción,Reentrenar un modelo que no existe,Definir qué se desea predecir,30,4
+10,¿Por qué no basta con probar un modelo en los mismos ejemplos que estudió?,Porque siempre hay que borrar esos ejemplos,Porque todo modelo debe adivinar sin datos,Porque necesitamos comprobarlo con casos distintos,Porque evaluar significa volver a recolectar,30,3

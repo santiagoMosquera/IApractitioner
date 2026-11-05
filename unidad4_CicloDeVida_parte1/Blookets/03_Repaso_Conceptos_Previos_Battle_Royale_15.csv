@@ -1,0 +1,16 @@
+﻿Question #,Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit (sec),Correct Answer(s)
+1,¿Cuál es la relación correcta entre IA y Machine Learning?,Son exactamente lo mismo,ML es parte de la IA,IA es parte de ML,No tienen relación,35,2
+2,¿Cuál es un ejemplo de IA que no necesita aprender de datos?,Un clasificador entrenado con fotos,Un recomendador que estudia compras,Un modelo de regresión,Un sistema que juega ajedrez con reglas y búsqueda,35,4
+3,Un banco predice si una transacción será fraude o válida. ¿Qué tarea realiza?,Clasificación,Regresión,Clustering,Traducción,35,1
+4,Una inmobiliaria estima el precio de una casa. ¿Qué tarea realiza?,Clasificación,Clustering,Regresión,Detección de objetos,35,3
+5,Un comercio agrupa clientes por hábitos de compra sin categorías previas. ¿Qué aprendizaje utiliza?,Supervisado,Por refuerzo,Solo reglas fijas,No supervisado,35,4
+6,"En aprendizaje supervisado, ¿qué caracteriza a los ejemplos?",No tienen información,Incluyen la respuesta conocida o etiqueta,Solo contienen imágenes,Todos son predicciones nuevas,35,2
+7,¿Qué es una etiqueta en un conjunto de datos de clasificación?,El nombre del archivo CSV,La cantidad de variables,La respuesta correcta asociada a un ejemplo,La predicción de un caso nuevo,35,3
+8,¿Qué es la inferencia?,Usar un modelo entrenado con un caso nuevo,Corregir datos repetidos,Entrenar un modelo desde cero,Definir el problema empresarial,35,1
+9,¿Qué ocurre durante el entrenamiento de ML?,El modelo recibe exclusivamente datos futuros,Se publican las predicciones en una app,Se elimina el objetivo,El modelo aprende patrones a partir de ejemplos,35,4
+10,¿Qué es un modelo de ML?,Un sistema aprendido que produce predicciones,Una base de datos sin procesar,Una regla escrita a mano siempre,Una etiqueta de entrenamiento,35,1
+11,"En el caso Lumas y Nexus, si conocemos las categorías correctas de los ejemplos, ¿qué tipo de aprendizaje es?",No supervisado,Solo inferencia,Supervisado,Sin datos,35,3
+12,Un supermercado descubre tres grupos de clientes sin dar sus nombres al algoritmo. ¿Qué técnica representa?,Clasificación supervisada,Clustering,Regresión,Reconocimiento facial,35,2
+13,¿Qué relación describe mejor a Deep Learning?,Es un subconjunto de ML que usa redes neuronales profundas,Es un servicio obligatorio para toda IA,Es lo mismo que una regla if/else,Reemplaza todos los tipos de ML,35,1
+14,"Si el modelo recibe un nuevo expediente de San Pedro y predice BUENO o MALO, ¿qué está haciendo?",Recolectando etiquetas,Definiendo el objetivo,Etiquetando el conjunto histórico,Inferencia,35,4
+15,¿Cuál de estos ejemplos corresponde a regresión?,Decidir si un correo es spam,Predecir el gasto mensual de un cliente,Separar clientes por similitud,Identificar la especie de una foto,35,2

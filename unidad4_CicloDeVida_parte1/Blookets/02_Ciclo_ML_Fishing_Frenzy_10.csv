@@ -1,0 +1,11 @@
+﻿Question #,Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit (sec),Correct Answer(s)
+1,¿Qué sucede durante la recolección de datos?,Reunimos ejemplos e información útil,Comprobamos predicciones finales,Publicamos el modelo,Elegimos una respuesta sin observar datos,30,1
+2,¿Qué significa seleccionar variables?,Reunir todos los datos posibles sin criterio,Elegir la información de entrada relevante,Usar el modelo con clientes nuevos,Comprobar las predicciones finales,30,2
+3,¿Para qué validamos y evaluamos un modelo?,Para cambiar el nombre del proyecto,Para comprobar su desempeño con casos separados,Para evitar recolectar datos,Para publicarlo sin hacer pruebas,30,2
+4,¿Qué hacemos al monitorear y mejorar?,Guardar el modelo y no volverlo a revisar,Reemplazar el objetivo sin motivos,Revisar resultados y corregir fallos con el tiempo,Ignorar resultados posteriores,30,3
+5,San Pedro reúne expedientes de decisiones anteriores. ¿Qué fase es?,Validar y evaluar,Desplegar e inferir,Seleccionar variables,Recolectar datos,30,4
+6,"San Pedro decide usar las acciones registradas, no datos sin utilidad. ¿Qué fase es?",Seleccionar variables,Recolectar datos,Monitorear y mejorar,Validar y evaluar,30,1
+7,Un estudiante responde preguntas reservadas que nunca practicó. ¿Qué fase representa?,Entrenar el modelo,Recolectar datos,Validar y evaluar,Monitorear y mejorar,30,3
+8,"Después del examen, el estudiante revisa errores y refuerza temas. ¿Qué fase es?",Recolectar datos,Definir el objetivo,Desplegar e inferir,Monitorear y mejorar,30,4
+9,Una tienda usa su modelo para estimar si un pedido nuevo se retrasará. ¿Qué hace?,Inferencia sobre un caso nuevo,Preparación de registros viejos,Recolección de expedientes históricos,Selección del objetivo,30,1
+10,"Si un modelo falla después de comenzar a utilizarse, ¿qué conviene hacer?",Ignorar el problema porque ya fue desplegado,Analizar resultados y volver a fases anteriores si hace falta,Cambiar los nombres de las variables únicamente,Eliminar la evaluación de futuros modelos,30,2
