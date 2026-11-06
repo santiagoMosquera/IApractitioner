@@ -1,0 +1,71 @@
+﻿No.,Tema,Pregunta,Respuesta correcta,Posición
+1,Fundamentos,"¿Cuál es la relación correcta entre IA, ML y Deep Learning?",Deep Learning ⊂ ML ⊂ IA,1
+2,Fundamentos,¿Qué significa que Machine Learning sea parte de IA?,ML es una forma de construir sistemas de IA,2
+3,Fundamentos,¿Qué caracteriza principalmente al Deep Learning?,Utiliza redes neuronales con múltiples capas,3
+4,Fundamentos,Un sistema de reglas fijas creado por un experto puede ser IA sin ser...,Machine Learning,4
+5,Fundamentos,"En ML, ¿qué significa inferencia?",Usar un modelo entrenado con datos nuevos,1
+6,Fundamentos,¿Cuál es un ejemplo de dato y etiqueta en aprendizaje supervisado?,Foto de criatura y etiqueta Luma,2
+7,Fundamentos,¿Cuál de estas tareas es clasificación y no regresión?,Decidir si una transacción es fraude,3
+8,Aprendizaje,¿Qué necesita típicamente el aprendizaje supervisado?,Ejemplos con respuestas o etiquetas conocidas,4
+9,Aprendizaje,¿Cuál es el propósito del aprendizaje no supervisado?,Encontrar patrones o grupos sin etiquetas previas,1
+10,Aprendizaje,Un algoritmo agrupa clientes según hábitos de compra sin grupos previos. ¿Qué aprendizaje es?,No supervisado,2
+11,Aprendizaje,Un agente aprende a jugar recibiendo recompensas por sus decisiones. ¿Qué aprendizaje utiliza?,Por refuerzo,3
+12,Aprendizaje,¿Qué es clustering?,Agrupar observaciones similares,4
+13,Aprendizaje,¿Qué tarea representa una regresión?,Predecir el precio de una vivienda en dólares,1
+14,Aprendizaje,Entrenamos con Lumas y Nexus etiquetados. ¿Qué aprendizaje aplicamos?,Supervisado,2
+15,Aprendizaje,"Si un modelo agrupa expedientes por similitud sin categorías, ¿qué técnica corresponde?",Clustering no supervisado,3
+16,Aprendizaje,¿Qué distingue al aprendizaje por refuerzo?,Un agente aprende de recompensas y consecuencias,4
+17,Ciclo,¿Qué se hace primero en el ciclo de vida de ML trabajado en clase?,Definir el objetivo o problema,1
+18,Ciclo,¿Cuál es una actividad típica de recolección de datos?,Obtener ejemplos representativos del problema,2
+19,Ciclo,¿En qué fase corregimos registros incompletos y etiquetas erróneas?,Preparar y explorar los datos,3
+20,Ciclo,¿Qué es una característica o feature?,Una propiedad de entrada útil para predecir,4
+21,Ciclo,"En Lumas/Nexus, ¿qué característica permite distinguir las especies en el ejercicio?",Manchas frente a rayas en el cuerpo,1
+22,Ciclo,¿En qué fase el algoritmo aprende patrones ajustando sus parámetros?,Entrenar el modelo,2
+23,Ciclo,¿Para qué reservamos datos de prueba no vistos durante entrenamiento?,Para evaluar generalización,3
+24,Ciclo,¿Qué sucede en la fase de despliegue e inferencia?,El modelo queda disponible para analizar datos nuevos,4
+25,Ciclo,¿Por qué monitoreamos un modelo después del despliegue?,Para detectar cambios en datos y degradación del desempeño,1
+26,Ciclo,"Si un modelo falla con criaturas nuevas, ¿qué acción encaja en mejora continua?",Revisar errores y reentrenar con mejores ejemplos,2
+27,Métricas,¿Qué mide accuracy en un modelo de clasificación?,Mide los aciertos al clasificar tanto positivos como negativos,3
+28,Métricas,¿Qué mide precision en un modelo de clasificación?,Mide cuántos casos predichos como positivos son realmente positivos,4
+29,Métricas,¿Qué mide recall en un modelo de clasificación?,Mide cuántos positivos reales logra detectar el modelo,1
+30,Métricas,"En detección de fraude, si queremos evitar fraudes no detectados, ¿qué métrica priorizamos?",Recall de la clase fraude,2
+31,Métricas,"Si queremos reducir falsas alarmas de fraude, ¿qué métrica positiva priorizamos?",Precision,3
+32,Métricas,¿Para qué sirve F1-score en clasificación?,Para evaluar conjuntamente precision y recall,4
+33,Métricas,¿Por qué accuracy puede ser engañosa cuando una clase es poco frecuente?,Puede haber muchos aciertos generales aunque falle al detectar la clase importante,1
+34,Métricas,¿Qué significa confidence en una predicción de Rekognition?,Es el nivel de confianza asignado a esa predicción concreta,2
+35,Métricas,¿Cuál es un falso negativo en detección de fraude?,Un fraude real clasificado como legítimo,3
+36,Servicios AWS,¿Qué servicio AWS analiza imágenes para detectar objetos y escenas?,Amazon Rekognition,4
+37,Servicios AWS,¿Qué operación de Rekognition intentarías para reconocer a una celebridad?,RecognizeCelebrities,1
+38,Servicios AWS,¿Qué solución permite entrenar reconocimiento de imágenes de Lumas y Nexus?,Rekognition Custom Labels,2
+39,Servicios AWS,¿Qué servicio AWS extrae texto y estructura de formularios escaneados?,Amazon Textract,3
+40,Servicios AWS,"Una empresa quiere extraer proveedor, impuestos y total de facturas. ¿Qué usar?",Textract AnalyzeExpense,4
+41,Servicios AWS,¿Qué función identifica campos y tablas de documentos generales?,Textract AnalyzeDocument,1
+42,Servicios AWS,¿Qué servicio analiza opiniones para detectar sentimiento positivo o negativo?,Amazon Comprehend,2
+43,Servicios AWS,"Quieres extraer personas, organizaciones y lugares de un texto. ¿Qué servicio?",Amazon Comprehend,3
+44,Servicios AWS,¿Qué servicio convierte texto escrito en voz?,Amazon Polly,4
+45,Servicios AWS,¿Qué servicio convierte una grabación o conversación hablada en texto?,Amazon Transcribe,1
+46,Servicios AWS,¿Qué servicio traduce textos entre idiomas?,Amazon Translate,2
+47,Servicios AWS,"En Translate, ¿qué hace la terminología personalizada?",Controla traducciones de términos sin reentrenar el modelo,3
+48,Servicios AWS,¿Cuál es la diferencia entre Comprehend Built-in y Custom?,Built-in usa modelos de AWS; Custom usa modelos personalizados entrenados,4
+49,Servicios AWS,"En Textract, ¿qué función permite entrenar adaptadores para consultas específicas?",Custom Queries con adapters,1
+50,Servicios AWS,Un modelo ya entrenado analiza un audio nuevo en Transcribe. ¿Qué fase ocurre?,Despliegue e inferencia,2
+51,Métricas - casos,"Un banco quiere detectar la mayor cantidad posible de operaciones fraudulentas, aunque aumenten las alertas. ¿Qué prioriza?",Recall,2
+52,Métricas - casos,El equipo antifraude pierde tiempo investigando operaciones legítimas marcadas como fraude. ¿Qué métrica debe mejorar?,Precision,4
+53,Métricas - casos,"En un conjunto equilibrado, interesa acertar tanto al identificar casos positivos como negativos. ¿Qué métrica representa ese objetivo general?",Accuracy,1
+54,Métricas - casos,"En un examen médico de detección inicial, lo más importante es no dejar pasar pacientes que sí tienen la enfermedad. ¿Qué priorizarías?",Recall,3
+55,Métricas - casos,Un filtro marca demasiados correos legítimos como spam. Queremos que los mensajes marcados como spam realmente lo sean. ¿Qué priorizamos?,Precision,2
+56,Métricas - casos,"Un sistema de seguridad debe detectar casi todos los accesos fraudulentos, incluso si genera más revisiones. ¿Qué métrica importa más?",Recall,1
+57,Métricas - casos,Un clasificador de candidatos recomienda muchas personas que no cumplen los requisitos. Queremos recomendaciones positivas más confiables. ¿Qué mejoramos?,Precision,4
+58,Métricas - casos,Un clasificador de defectos en fábrica está dejando pasar productos realmente defectuosos. ¿Qué métrica conviene priorizar?,Recall,3
+59,Métricas - casos,Una aplicación debe minimizar las alertas falsas al señalar transacciones sospechosas. ¿Qué métrica priorizarías?,Precision,1
+60,Métricas - casos,Una tienda quiere evaluar el porcentaje general de clasificaciones correctas entre devoluciones válidas y no válidas. ¿Qué métrica usaría?,Accuracy,2
+61,Métricas - conceptos,¿Qué afirmación describe mejor recall?,"De los positivos reales, cuántos logra detectar el modelo",4
+62,Métricas - conceptos,¿Qué afirmación describe mejor precision?,"De los casos predichos como positivos, cuántos lo son realmente",3
+63,Métricas - conceptos,¿Qué afirmación describe mejor accuracy?,Mide los aciertos totales tanto en positivos como en negativos,2
+64,Métricas - conceptos,"Cuando necesitamos equilibrar precision y recall en una sola medida, ¿cuál usamos?",F1-score,1
+65,Métricas - conceptos,"Un clasificador detecta muy pocos fraudes, pero casi todas sus alertas de fraude son verdaderas. ¿Qué combinación es plausible?",Precision alta y recall bajo,3
+66,Métricas - conceptos,"Un detector encuentra casi todos los fraudes, pero genera muchísimas alarmas falsas. ¿Qué combinación es plausible?",Recall alto y precision baja,4
+67,Métricas - conceptos,¿Por qué no basta con accuracy para evaluar un detector de fraude cuando los fraudes son muy raros?,Puede acertar muchos casos normales y aun así dejar pasar fraudes,1
+68,Métricas - casos,"Un hospital usa un modelo para enviar a revisión los resultados sospechosos; revisar de más es aceptable, omitir un caso grave no. ¿Qué prioriza?",Recall,2
+69,Métricas - casos,"En una campaña muy costosa, solo queremos contactar clientes clasificados como interesados si realmente suelen estarlo. ¿Qué priorizamos?",Precision,3
+70,Métricas - conceptos,¿Cuál es la distinción correcta entre confidence y accuracy?,Confidence corresponde a una predicción; accuracy evalúa aciertos en un conjunto,4

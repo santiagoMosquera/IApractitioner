@@ -1,0 +1,1 @@
+Blooket de 70 preguntas (50 originales + 20 de métricas con casos prácticos). Importar CSV mediante Blooket. No contiene cálculos.
