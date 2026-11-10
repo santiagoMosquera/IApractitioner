@@ -1,0 +1,11 @@
+KrakeDev · Segunda barrida AIF-C01
+
+- Los sub-conceptos dentro de una misma tarjeta ahora se muestran en líneas separadas y con la denominación en negrilla.
+- 24 preguntas de las fases: 6 A, 6 B, 6 C y 6 D.
+- Evaluación de 12 preguntas: 3 A, 3 B, 3 C y 3 D.
+- Reto final de 16 preguntas: 4 A, 4 B, 4 C y 4 D en el banco; las alternativas se mezclan en cada intento.
+- Las dos preguntas introductorias (inferencia y Textract) aparecen en A y D.
+- Las preguntas de métricas también tienen una respuesta en cada posición.
+- Se conservaron 2 ejercicios iniciales, teoría, reto final y navegación.
+
+10-nov-2026: MLOps explicado mediante DevOps; fase 5 agrega caso de overfitting; fase 7 amplía latencia y modalidades, con preguntas adicionales.

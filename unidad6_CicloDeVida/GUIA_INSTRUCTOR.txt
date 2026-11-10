@@ -1,0 +1,48 @@
+KRAKEDEV — CICLO DE VIDA ML / SEGUNDA Y ÚLTIMA BARRIDA
+Basado en AWS Certified AI Practitioner (AIF-C01), Dominio 1, objetivos 1.1–1.3.
+Referencia: https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain1.html
+
+INICIO DE LA SEGUNDA BARRIDA
+- 01-ordenar-ciclo.html: ejercicio original de ordenar las ocho fases en el diagrama circular, arrastrar y soltar.
+- 02-emparejar-fases.html: ocho fases numeradas y en orden; arrastrar ocho descripciones mezcladas.
+- teoria.html: presentación de segunda barrida con contenido y evaluación.
+- index.html: inicia automáticamente el primer ejercicio.
+
+ESTRUCTURA
+- 1 repaso inicial
+- 8 fases; cada una 4 conceptos y 2 aplicaciones (Lumas/Nexus y empresa), con pregunta situacional
+- 1 ejercicio de métricas (sin cálculos)
+- 1 repaso de seis servicios AWS y SageMaker AI
+- 1 evaluación de 12 preguntas, con retroalimentación inmediata
+- 1 cierre
+
+LÍMITES ACORDADOS
+- SOLO dos barridas, no habrá una tercera.
+- Enfoque examen: qué es cada concepto, cuándo utilizarlo y qué servicio aplica.
+- No explicar técnicas de imputación, SMOTE, regularización, tipos de escalamiento o matemáticas.
+- Sin cálculos de métricas ni porcentajes de Rekognition.
+- No enseñar IA generativa en este material.
+
+NOTAS DOCENTES
+- Supervised, unsupervised y reinforcement: paradigmas de aprendizaje.
+- Clasificación, regresión, clustering: tareas de ML (no equivalentes a esos paradigmas).
+- Validación se usa para decisiones de modelado; prueba para evaluación reservada.
+- Accuracy: aciertos positivos y negativos; precision: alertas positivas correctas; recall: positivos reales encontrados; F1: equilibrio.
+- Los distractores son deliberadamente plausibles y exigen justificar decisiones.
+- Los seis servicios que se usaron en el laboratorio ilustran principalmente inferencia.
+
+VERSIÓN ACTUALIZADA: Dos casos empresariales (sin Lumas/Nexus) por fase. Las ocho fases incluyen una pregunta de razonamiento y dos preguntas para reforzar términos nuevos. En fase 2 se amplía la diferencia entre datos estructurados/no estructurados, sesgo y representatividad, con casos de banco y hospital. EDA se desarrolla en inglés y español.
+
+AMPLIACIONES PARA FASES 5 Y 8
+- Parámetros: valores internos aprendidos; hiperparámetros: configuración del entrenamiento. Ejemplo de viviendas e iteraciones.
+- Data drift: cambian entradas; concept drift: cambia relación entrada-resultado. El cambio no implica necesariamente falla.
+- MLOps: versionar, desplegar de forma controlada, monitorear y mantener modelos. No enseñar implementación técnica.
+
+ACTIVIDAD FINAL ACTUALIZADA
+- Archivo: 03-reto-final.html (enlace integrado en teoria.html, pantalla 12 de 13).
+- 40 preguntas; 20 segundos por pregunta, cuatro opciones.
+- Avanza automáticamente tanto al acertar como al fallar o vencer el tiempo.
+- Puntuación acumulada; finalización únicamente con 40/40; si falla, repite todo.
+- Preguntas y alternativas se mezclan en cada intento. Se muestran explicaciones de los errores al terminar.
+
+DINÁMICA ACTUAL: cuatro bloques de 10 preguntas (20 segundos cada una). Dentro de cada bloque solo se repiten preguntas falladas hasta que se respondan todas correctamente. Al completar los cuatro bloques, se propone una ronda de repaso con la unión de todas las preguntas falladas alguna vez, incluso si se acertaron en la repetición. Si falla alguna en el repaso final, repite solo las falladas de esa ronda. No se registran datos en servidor.

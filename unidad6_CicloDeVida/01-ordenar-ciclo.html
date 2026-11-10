@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ciclo de Vida de Machine Learning</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --ink:#1f2a37;
+      --muted:#6b7280;
+      --primary:#7c3aed;
+      --primary2:#2563eb;
+      --accent:#14b8a6;
+      --ok:#16a34a;
+      --bad:#dc2626;
+      --slot:#dbeafe;
+      --slot-border:#93c5fd;
+      --shadow:0 12px 30px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #eef4ff 0%, var(--bg) 45%, #eef2ff 100%);
+      color:var(--ink);
+    }
+    .page{
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 22px 18px 28px;
+    }
+    .header{
+      background:rgba(255,255,255,.9);
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:18px 22px;
+      box-shadow: var(--shadow);
+      margin-bottom:18px;
+    }
+    h1{margin:0 0 8px;font-size:34px;line-height:1.1}
+    .subtitle{font-size:18px;color:#334155;margin:0 0 8px}
+    .note{font-size:15px;color:var(--muted);margin:0}
+    .controls{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;
+    }
+    .btn{
+      border:none;border-radius:999px;padding:11px 16px;font-weight:700;cursor:pointer;
+      box-shadow:0 5px 16px rgba(0,0,0,.08);
+    }
+    .btn.primary{background:linear-gradient(90deg,var(--primary),var(--primary2));color:#fff}
+    .btn.secondary{background:#fff;color:#334155;border:1px solid #d1d5db}
+    .layout{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:start;
+    }
+    .panel{
+      background:rgba(255,255,255,.92);
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .panel-title{
+      padding:16px 20px;
+      font-size:20px;
+      font-weight:800;
+      border-bottom:1px solid #eef2f7;
+      background:linear-gradient(180deg,#ffffff,#f8fbff);
+    }
+    .diagram-wrap{
+      position:relative;
+      height:860px;
+      overflow:hidden;
+    }
+    .diagram-area{
+      position:absolute; left:0; top:0; width:900px; height:860px; transform-origin:0 0;
+    }
+    svg#arrows{
+      position:absolute; inset:0; width:100%; height:100%; pointer-events:none;
+    }
+    .center-circle, .target, .draggable{
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      user-select:none;
+    }
+    .center-circle{
+      position:absolute;
+      width:210px; height:210px;
+      left:50%; top:50%; transform:translate(-50%,-50%);
+      background:linear-gradient(145deg,#2563eb,#7c3aed);
+      color:#fff;
+      font-weight:900;
+      font-size:28px;
+      line-height:1.15;
+      box-shadow:0 18px 35px rgba(37,99,235,.28);
+      padding:24px;
+      z-index:3;
+    }
+    .target{
+      position:absolute;
+      width:150px;height:150px;
+      border:3px dashed var(--slot-border);
+      background:rgba(219,234,254,.45);
+      color:#94a3b8;
+      font-weight:800;
+      font-size:18px;
+      padding:14px;
+      z-index:2;
+      transition:.2s ease;
+    }
+    .target.over{transform:scale(1.05); background:rgba(191,219,254,.75)}
+    .target.filled{border-color:#34d399;background:rgba(220,252,231,.65);color:#0f766e}
+    .target.correct{border-color:#16a34a;background:rgba(220,252,231,.7)}
+    .target.wrong{border-color:#ef4444;background:rgba(254,226,226,.8)}
+
+    .bank{
+      padding:18px;
+      min-height:860px;
+      position:relative;
+    }
+    .bank-info{padding:0 2px 12px;color:#475569;font-size:15px}
+    .bank-zone{
+      position:relative;
+      min-height:760px;
+      border:2px dashed #dbe3ef;
+      border-radius:18px;
+      background:linear-gradient(180deg,#f8fbff,#ffffff);
+      overflow:hidden;
+    }
+    .draggable{
+      position:absolute;
+      width:128px;height:128px;
+      padding:12px;
+      font-weight:800;
+      color:#fff;
+      cursor:grab;
+      box-shadow:0 12px 22px rgba(0,0,0,.18);
+      touch-action:none;
+      z-index:6;
+      line-height:1.1;
+      font-size:17px;
+    }
+    .draggable.dragging{cursor:grabbing;opacity:.96;box-shadow:0 20px 35px rgba(0,0,0,.28);z-index:1000}
+    .draggable .small{display:block;font-size:13px;font-weight:700;opacity:.92;margin-top:5px}
+    .status{
+      margin-top:12px;
+      font-size:15px;
+      color:#334155;
+      min-height:24px;
+      font-weight:700;
+    }
+    .legend{
+      padding:14px 18px 20px;
+      border-top:1px solid #eef2f7;
+      background:#fbfdff;
+      color:#475569;
+      font-size:14px;
+      line-height:1.55;
+    }
+    .legend strong{color:#111827}
+
+    @media (max-width: 1100px){
+      .layout{grid-template-columns:1fr}
+      .diagram-wrap,.bank{height:auto;min-height:auto}
+      .diagram-wrap{height:820px}
+      .bank{min-height:760px}
+    }
+    @media (max-width: 760px){
+      h1{font-size:28px}
+      .subtitle{font-size:16px}
+      .diagram-wrap{height:760px}
+      .target{width:118px;height:118px;font-size:14px}
+      .center-circle{width:170px;height:170px;font-size:22px}
+      .draggable{width:108px;height:108px;font-size:14px}
+    }
+
+    .course-navigation{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:24px 0 12px;flex-wrap:wrap}
+    .course-navigation a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:14px 20px;border-radius:12px;font-weight:800;font-size:16px;border:1px solid #cbd5e1;color:#1e293b;background:#fff}
+    .course-navigation a.next{background:#2563eb;color:white;border-color:#2563eb}
+    .course-navigation a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>Repaso: ordena las 8 fases del ciclo de ML</h1>
+      <p class="subtitle">Arrastra las 8 etapas al lugar que les corresponde dentro del ciclo.</p>
+      <p class="note">Recuerda: el ciclo es <strong>cíclico</strong>. Desde <strong>Monitorear y mejorar</strong> salen <strong>flechas punteadas</strong> hacia todas las demás fases, porque el monitoreo puede hacer que volvamos a cualquier etapa, incluso a <strong>definir el objetivo</strong>.</p>
+      <div class="controls">
+        <button class="btn primary" id="checkBtn">Verificar</button>
+        <button class="btn secondary" id="resetBtn">Reiniciar</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="panel">
+        <div class="panel-title">Diagrama del ciclo</div>
+        <div class="diagram-wrap">
+          <div class="diagram-area" id="diagramArea">
+            <svg id="arrows" viewBox="0 0 900 860" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <marker id="arrowSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"></path>
+                </marker>
+                <marker id="arrowDashed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"></path>
+                </marker>
+              </defs>
+              <g id="solidArrows"></g>
+              <g id="dashedArrows"></g>
+            </svg>
+            <div class="center-circle">Ciclo de vida de ML</div>
+
+            <!-- Targets -->
+            <div class="target" data-id="1" style="left:375px; top:20px;">1. Suelta aquí</div>
+            <div class="target" data-id="2" style="left:620px; top:95px;">2. Suelta aquí</div>
+            <div class="target" data-id="3" style="left:730px; top:275px;">3. Suelta aquí</div>
+            <div class="target" data-id="4" style="left:620px; top:500px;">4. Suelta aquí</div>
+            <div class="target" data-id="5" style="left:375px; top:605px;">5. Suelta aquí</div>
+            <div class="target" data-id="6" style="left:125px; top:500px;">6. Suelta aquí</div>
+            <div class="target" data-id="7" style="left:20px; top:275px;">7. Suelta aquí</div>
+            <div class="target" data-id="8" style="left:120px; top:95px;">8. Suelta aquí</div>
+          </div>
+        </div>
+        <div class="legend">
+          <strong>Lectura del gráfico:</strong> las flechas continuas muestran el recorrido normal del ciclo. Las flechas punteadas salen desde <strong>Monitorear y mejorar</strong> hacia las otras etapas porque, según lo que descubrimos al monitorear, podemos regresar a <strong>definir el objetivo</strong>, recopilar más datos, preparar datos, seleccionar características, entrenar, evaluar o volver a desplegar.
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Etapas para arrastrar</div>
+        <div class="bank">
+          <div class="bank-info">Colócalas en orden <strong>1 a 8 siguiendo las flechas grises</strong>. Cuando termines, usa <strong>Verificar</strong>.</div>
+          <div class="bank-zone" id="bankZone"></div>
+          <div class="status" id="status"></div>
+        </div>
+      </div>
+    </div>
+    <nav class="course-navigation" aria-label="Navegación de actividades">
+      <span style="color:#64748b;font-weight:700">Actividad 1 de 2 · Ordenar las fases</span>
+      <a class="next" id="nextActivity" href="02-emparejar-fases.html">Siguiente actividad →</a>
+    </nav>
+  </div>
+
+  <script>
+    const stages = [
+      { id:'1', label:'Definir el objetivo', color:'#8b5cf6', target:'1' },
+      { id:'2', label:'Recolectar datos', color:'#2563eb', target:'2' },
+      { id:'3', label:'Preparar y explorar datos', color:'#06b6d4', target:'3' },
+      { id:'4', label:'Seleccionar variables', color:'#0ea5a4', target:'4' },
+      { id:'5', label:'Entrenar el modelo', color:'#16a34a', target:'5' },
+      { id:'6', label:'Validar y evaluar', color:'#65a30d', target:'6' },
+      { id:'7', label:'Desplegar e inferir', color:'#f59e0b', target:'7' },
+      { id:'8', label:'Monitorear y mejorar', color:'#ef4444', target:'8' },
+    ];
+
+    // Orden canónico de las fases: 4 = Seleccionar variables; 5 = Entrenar el modelo.
+    const expectedByPosition = Object.fromEntries(stages.map(s => [s.target, s.id]));
+
+    const bankZone = document.getElementById('bankZone');
+    const diagramArea = document.getElementById('diagramArea');
+    const targets = [...document.querySelectorAll('.target')];
+    const statusEl = document.getElementById('status');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    const state = {};
+    let active = null;
+
+    function bankPositions(){
+      const cardSize=128, gap=12;
+      const cols=Math.max(1,Math.floor((bankZone.clientWidth-24)/(cardSize+gap)));
+      return Array.from({length:8},(_,i)=>({x:12+(i%cols)*(cardSize+gap),y:18+Math.floor(i/cols)*148}));
+    }
+
+    function createCards(){
+      bankZone.innerHTML='';
+      const positions = bankPositions();
+      const shuffled = [...stages].sort(()=>Math.random()-0.5);
+      shuffled.forEach((stg, idx)=>{
+        const div = document.createElement('div');
+        div.className='draggable';
+        div.dataset.id=stg.id;
+        div.dataset.target=stg.target;
+        div.style.background=`linear-gradient(145deg, ${stg.color}, ${shade(stg.color,-18)})`;
+        div.innerHTML = `<div>${stg.label}</div>`;
+        const pos = positions[idx] || {x:26,y:26};
+        div.style.left=pos.x+'px';
+        div.style.top=pos.y+'px';
+        div.dataset.homeX = pos.x;
+        div.dataset.homeY = pos.y;
+        state[stg.id] = {placedIn:null};
+        attachDrag(div);
+        bankZone.appendChild(div);
+      });
+    }
+
+    function shade(hex, percent) {
+      const num = parseInt(hex.replace('#', ''), 16);
+      let r = (num >> 16) + percent;
+      let g = ((num >> 8) & 0x00FF) + percent;
+      let b = (num & 0x0000FF) + percent;
+      r = Math.max(Math.min(255, r), 0);
+      g = Math.max(Math.min(255, g), 0);
+      b = Math.max(Math.min(255, b), 0);
+      return `#${(b | (g << 8) | (r << 16)).toString(16).padStart(6, '0')}`;
+    }
+
+    function attachDrag(el){
+      el.addEventListener('pointerdown', (e)=>startDrag(e, el));
+    }
+
+    function startDrag(e, el){
+      e.preventDefault();
+      const rect = el.getBoundingClientRect();
+      active = {
+        el,
+        offsetX: e.clientX - rect.left,
+        offsetY: e.clientY - rect.top,
+        originParent: el.parentElement,
+      };
+      el.classList.add('dragging');
+      el.style.transform='none';
+      el.style.position='fixed';
+      document.body.appendChild(el);
+      moveAt(e.clientX, e.clientY);
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+    }
+
+    function moveAt(clientX, clientY){
+      if(!active) return;
+      active.el.style.left = (clientX - active.offsetX) + 'px';
+      active.el.style.top = (clientY - active.offsetY) + 'px';
+      highlightNearest(clientX, clientY);
+    }
+
+    function onMove(e){ moveAt(e.clientX, e.clientY); }
+
+    function clearTargetHighlight(){
+      targets.forEach(t=>t.classList.remove('over'));
+    }
+
+    function highlightNearest(clientX, clientY){
+      clearTargetHighlight();
+      const nearest = findNearestTarget(clientX, clientY, 95);
+      if(nearest) nearest.classList.add('over');
+    }
+
+    function findNearestTarget(clientX, clientY, maxDist=90){
+      let nearest = null; let best = Infinity;
+      targets.forEach(t=>{
+        const r = t.getBoundingClientRect();
+        const cx = r.left + r.width/2;
+        const cy = r.top + r.height/2;
+        const d = Math.hypot(clientX - cx, clientY - cy);
+        if(d < best && d < maxDist){ best = d; nearest = t; }
+      });
+      return nearest;
+    }
+
+    function onUp(e){
+      if(!active) return;
+      const nearest = findNearestTarget(e.clientX, e.clientY, 105);
+      clearTargetHighlight();
+      if(nearest){
+        placeInTarget(active.el, nearest);
+      } else {
+        returnToBank(active.el);
+      }
+      active.el.classList.remove('dragging');
+      active = null;
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+    }
+
+    function placeInTarget(el, target){
+      // If target occupied, send existing card back to bank
+      const existing = target.querySelector('.draggable');
+      if(existing && existing !== el){
+        returnToBank(existing);
+      }
+      const previousId = state[el.dataset.id].placedIn;
+      if(previousId){
+        const old = targets.find(t=>t.dataset.id===previousId);
+        if(old && old!==target){ old.classList.remove('filled','correct','wrong'); old.textContent=old.dataset.id+'. Suelta aquí'; }
+      }
+      target.classList.remove('correct','wrong');
+      target.classList.add('filled');
+      target.replaceChildren(el);
+      el.style.position='absolute';
+      el.style.transform='translate(-50%, -50%)';
+      el.style.left='50%';
+      el.style.top='50%';
+      state[el.dataset.id].placedIn = target.dataset.id;
+      statusEl.textContent = '';
+    }
+
+    function returnToBank(el){
+      const previousId = state[el.dataset.id].placedIn;
+      if(previousId){
+        const old = targets.find(t=>t.dataset.id===previousId);
+        if(old){ old.classList.remove('filled','correct','wrong'); old.textContent=old.dataset.id+'. Suelta aquí'; }
+      }
+      bankZone.appendChild(el);
+      el.style.position='absolute';
+      el.style.transform='none';
+      const homeX = el.dataset.homeX;
+      const homeY = el.dataset.homeY;
+      el.style.left = homeX + 'px';
+      el.style.top = homeY + 'px';
+      state[el.dataset.id].placedIn = null;
+    }
+
+    checkBtn.addEventListener('click', ()=>{
+      let placedCount = 0;
+      let correct = 0;
+      targets.forEach(t=>{
+        t.classList.remove('correct','wrong');
+        const card = t.querySelector('.draggable');
+        if(card){
+          placedCount++;
+          if(card.dataset.id === expectedByPosition[t.dataset.id]){
+            t.classList.add('correct');
+            correct++;
+          } else {
+            t.classList.add('wrong');
+          }
+        }
+      });
+      if(placedCount < stages.length){
+        statusEl.innerHTML = `Has colocado <strong>${placedCount}</strong> de <strong>${stages.length}</strong> etapas. Sigue completando el ciclo.`;
+        return;
+      }
+      const phase4 = document.querySelector('.target[data-id="4"] .draggable');
+      const phase5 = document.querySelector('.target[data-id="5"] .draggable');
+      if(phase4?.dataset.id === '5' && phase5?.dataset.id === '4'){
+        statusEl.innerHTML = 'Tienes <strong>' + correct + '</strong> de <strong>' + stages.length + '</strong> etapas correctas. Revisa las fases 4 y 5: <strong>Seleccionar variables va antes de Entrenar el modelo</strong>.';
+        return;
+      }
+      if(correct === stages.length){
+        statusEl.innerHTML = '¡Excelente! Ordenaste correctamente las 8 etapas del ciclo de vida de Machine Learning. <a href="02-emparejar-fases.html" style="display:inline-block;margin-top:12px;padding:11px 15px;background:#2563eb;color:white;border-radius:9px;text-decoration:none;font-weight:800">Siguiente actividad →</a>';
+      } else {
+        statusEl.innerHTML = `Tienes <strong>${correct}</strong> de <strong>${stages.length}</strong> etapas correctas. Revisa especialmente el orden del ciclo y recuerda que desde <strong>Monitorear y mejorar</strong> salen flechas punteadas hacia todas las demás fases.`;
+      }
+    });
+
+    resetBtn.addEventListener('click', ()=>{
+      targets.forEach(t=>{
+        const card = t.querySelector('.draggable');
+        if(card) bankZone.appendChild(card);
+        t.classList.remove('filled','correct','wrong','over');
+        t.textContent = t.dataset.id + '. Suelta aquí';
+      });
+      const cards = [...bankZone.querySelectorAll('.draggable')];
+      const positions = bankPositions();
+      cards.forEach((el, idx)=>{
+        const pos = positions[idx] || {x:26,y:26};
+        el.dataset.homeX = pos.x;
+        el.dataset.homeY = pos.y;
+        el.style.position='absolute';
+        el.style.transform='none';
+        el.style.left = pos.x + 'px';
+        el.style.top = pos.y + 'px';
+        state[el.dataset.id].placedIn = null;
+      });
+      statusEl.textContent = '';
+    });
+
+    function centerOfTarget(id){
+      const el = document.querySelector(`.target[data-id="${id}"]`);
+      const left = parseFloat(el.style.left);
+      const top = parseFloat(el.style.top);
+      return {x:left + 75, y:top + 75};
+    }
+
+    function drawArrows(){
+      const solidG = document.getElementById('solidArrows');
+      const dashedG = document.getElementById('dashedArrows');
+      solidG.innerHTML='';
+      dashedG.innerHTML='';
+
+      const order = ['1','2','3','4','5','6','7','8'];
+      // solid cycle arrows around perimeter
+      for(let i=0;i<order.length-1;i++){ 
+        const from = centerOfTarget(order[i]);
+        const to = centerOfTarget(order[i+1]);
+        const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('x1', from.x);
+        line.setAttribute('y1', from.y);
+        line.setAttribute('x2', to.x);
+        line.setAttribute('y2', to.y);
+        line.setAttribute('stroke', '#64748b');
+        line.setAttribute('stroke-width', '3');
+        line.setAttribute('marker-end', 'url(#arrowSolid)');
+        solidG.appendChild(line);
+      }
+
+      // dashed returns from monitoring to all others
+      const monitor = centerOfTarget('8');
+      ['1','2','3','4','5','6','7'].forEach(id=>{
+        const to = centerOfTarget(id);
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        // simple quadratic curves to avoid excessive overlap
+        const mx = (monitor.x + to.x) / 2;
+        const my = (monitor.y + to.y) / 2;
+        const dx = to.x - monitor.x;
+        const dy = to.y - monitor.y;
+        const curve = 0.18;
+        const cx = mx - dy * curve;
+        const cy = my + dx * curve;
+        path.setAttribute('d', `M ${monitor.x} ${monitor.y} Q ${cx} ${cy} ${to.x} ${to.y}`);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', '#f59e0b');
+        path.setAttribute('stroke-width', '2.8');
+        path.setAttribute('stroke-dasharray', '8 8');
+        path.setAttribute('marker-end', 'url(#arrowDashed)');
+        dashedG.appendChild(path);
+      });
+    }
+
+    function fitDiagram(){
+      const wrap=document.querySelector('.diagram-wrap');
+      const scale=Math.min(1,wrap.clientWidth/900);
+      diagramArea.style.transform=`scale(${scale})`;
+      wrap.style.height=(860*scale)+'px';
+    }
+    window.addEventListener('resize',fitDiagram);
+    fitDiagram();
+    drawArrows();
+    createCards();
+  </script>
+</body>
+</html>

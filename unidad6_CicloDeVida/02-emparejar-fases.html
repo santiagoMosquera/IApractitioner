@@ -1,0 +1,151 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Actividad 2 · Emparejar fases de ML</title>
+<style>
+:root{font-family:Inter,system-ui,Arial,sans-serif;color-scheme:dark;--bg:#0b1020;--panel:#17213a;--line:#354766;--txt:#f6f8ff;--mut:#bfcce3;--good:#27d6a3;--bad:#ffb1a9;--acc:#7ab5ff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 30% 0,#1d2951,#0b1020 58%);color:var(--txt)}main{max-width:1440px;margin:auto;padding:22px}header{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:16px}.tag{font-size:12px;font-weight:800;letter-spacing:.09em;color:#a5d4ff}h1{font-size:clamp(23px,3vw,36px);margin:9px 0}p{color:var(--mut);line-height:1.45;margin:7px 0}a{color:#aed5ff}.header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}button,.linkbutton{font:inherit;cursor:pointer;border:1px solid #5b80bd;border-radius:10px;padding:11px 17px;background:#2356a2;color:#fff;text-decoration:none;font-weight:750}button.secondary,.linkbutton.secondary{background:#202f4b}.panel{border:1px solid #374e78;border-radius:15px;background:#15223b;padding:16px;margin-top:16px}.rounds{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}.round{padding:8px 12px;border:1px solid #52688b;border-radius:30px;color:#c2cde2}.round.active{background:#204b83;border-color:#78b3ff;color:white;font-weight:800}.round.done{border-color:#2abd96;color:#79f1cd}.board{display:grid;grid-template-columns:minmax(250px,1fr) minmax(300px,1.35fr);gap:13px;margin-top:19px;align-items:start}.colhead{font-size:13px;letter-spacing:.04em;font-weight:800;padding:10px 5px;text-align:center;color:#d6e4fc}.bank,.phases,.slots{display:flex;flex-direction:column;gap:9px}.tile,.phase,.slot{min-height:104px;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:13px;text-align:center;line-height:1.33}.tile{border:1.5px solid #5878ac;background:#263c60;cursor:grab;font-size:15px;font-weight:650}.tile.selected{border:2px solid #ffdb7a;background:#5c4c2b}.tile:focus-visible,.slot:focus-visible,button:focus-visible{outline:3px solid #acd5ff;outline-offset:2px}.phase{background:#233f70;border:1px solid #618bcc;font-size:15px;font-weight:780;flex-direction:column;gap:5px}.phase small{font-size:12px;color:#accdf9}.slot{border:2px dashed #7188b4;background:#101e37;cursor:pointer;color:#aabbd6}.slot.over{border-color:#ffd46f;background:#2a3353}.slot.filled{border-style:solid;border-color:#789ac4}.slot.correct{border-color:#27d6a3;background:#143a32}.slot.wrong{border-color:#ff9999;background:#4c2938}.slot .tile{width:100%;min-height:64px;padding:10px;cursor:pointer;background:#2a446a}.slot{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;min-height:124px;padding:12px}.slot-label{display:flex;align-items:center;gap:10px;text-align:left;font-weight:800;color:#fff;font-size:15px}.slot-number{display:inline-flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;border-radius:9px;background:#285c9b;color:#fff}.slot-definition{font-size:12px;color:#c6d9f5;line-height:1.4;text-align:left}.slot-target{flex:1;min-height:50px;border:1px dashed #506a94;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:8px;color:#bfd0e9}.slot.filled .slot-target{border:0;padding:0}.slot.correct .slot-target{border-color:#27d6a3}.slot.wrong .slot-target{border-color:#ff9999}.result{font-weight:700;min-height:30px;margin-top:14px}.bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:10px}.hint{font-size:13px;color:#c3d0e6}.hidden{display:none!important}@media(max-width:760px){main{padding:10px}.board{grid-template-columns:minmax(155px,1fr) minmax(180px,1.2fr);gap:5px;overflow-x:auto}.tile,.phase,.slot{min-height:128px;padding:6px;font-size:11px}.slot .tile{min-height:84px;font-size:11px;padding:6px}.slot-label{font-size:12px;gap:6px}.slot-number{width:25px;height:25px}.slot-definition{font-size:11px}.slot{padding:7px;gap:7px}.colhead{font-size:11px}.phase small{font-size:10px}.bank,.phases,.slots{gap:7px}.panel{padding:12px}}
+ .recap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:16px 0}.recap-card{padding:14px;border:1px solid #52688b;background:#1d3051;border-radius:12px}.recap-card h3{margin:0 0 6px;font-size:16px}.recap-card p{font-size:14px;margin:0}.phase .definition-mini{font-size:12px;line-height:1.35;color:#d4e6ff;font-weight:450;margin-top:6px}.board.hidden{display:none}@media(max-width:740px){.recap-grid{grid-template-columns:1fr}} .tile{touch-action:none;user-select:none;-webkit-user-select:none}.drag-ghost{position:fixed;z-index:99999;pointer-events:none;max-width:min(44vw,330px);min-width:180px;padding:15px;border-radius:12px;border:2px solid #9edcff;background:#244f7d;color:white;box-shadow:0 12px 30px #0009;font-size:14px;font-weight:700;line-height:1.35;opacity:.96}
+/* Navegación explícita al concluir el emparejamiento */
+.lesson-complete-bar{position:fixed;bottom:0;left:0;right:0;z-index:50;background:#0c1b30f2;border-top:2px solid #33d7a6;padding:14px 22px;box-shadow:0 -10px 35px #0009}
+.lesson-complete-inner{max-width:1140px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.lesson-complete-inner strong{font-size:16px;color:#a6ffdc}
+.lesson-complete-inner a{display:inline-flex;align-items:center;justify-content:center;background:#29c99a;color:#092332;border-radius:12px;font-weight:850;padding:13px 20px;text-decoration:none;box-shadow:0 3px 0 #147359}
+.lesson-complete-inner a:hover{background:#74f5ce}
+body.activity-passed main{padding-bottom:110px}
+#nextLesson{background:#29c99a;color:#092332;border:0;font-weight:850}
+@media(max-width:600px){.lesson-complete-inner{justify-content:center;text-align:center}.lesson-complete-inner a{width:100%}}
+</style></head><body><main>
+<header><div><div class="tag">KRAKEDEV · ACTIVIDAD 02 · AWS AI PRACTITIONER</div><h1>Repaso: empareja fases y descripciones</h1><p id="instruction">Arrastra cada descripción hasta la fase correspondiente. Las fases están numeradas y en orden.</p></div><div class="header-actions"><a href="01-ordenar-ciclo.html">← Actividad 1</a><button class="secondary" id="reset" type="button">Reiniciar ejercicio</button></div></header>
+<div class="panel"><div class="rounds"><strong>Fases 1 a 8 · Descripciones mezcladas</strong><span id="progress">0 / 8 asociaciones</span></div><p class="hint">Arrastra una tarjeta de la primera columna al cajón de la fase correspondiente, o selecciónala con un clic y después pulsa el cajón. Para cambiar una respuesta, pulsa la tarjeta colocada. Si fallas, revisa las casillas marcadas e inténtalo de nuevo.</p></div>
+<section id="explain" class="panel hidden" aria-live="polite"><h2 style="margin-top:0">Antes de continuar: entendamos el sentido de cada fase</h2><p>Lee con atención qué ocurre en cada fase y para qué sirve. Después relacionarás las fases con la historia de San Pedro.</p><div id="explainGrid" class="recap-grid"></div><button id="readDone" type="button">Ya revisé las 8 fases · Continuar con San Pedro →</button></section>
+<div class="board" id="board"><section><div id="bankTitle" class="colhead">1 · DEFINICIONES PARA ARRASTRAR</div><div id="bank" class="bank"></div></section><section><div class="colhead">2 · ARRASTRA AL CAJÓN DE CADA FASE</div><div id="slots" class="slots"></div></section></div>
+<div class="panel" id="controlPanel"><div id="feedback" class="result" aria-live="polite">Completa las ocho asociaciones y presiona Calificar.</div><div class="bottom"><button id="check" type="button">Calificar asociaciones</button><button id="nextRound" class="hidden" type="button" aria-hidden="true">Continuar</button><a class="linkbutton hidden" id="nextLesson" href="teoria.html">Continuar a las 8 fases →</a><a href="01-ordenar-ciclo.html">Volver al ejercicio 1</a></div></div>
+</main>
+<div id="lessonCompleteBar" class="lesson-complete-bar hidden" role="status" aria-live="polite">
+  <div class="lesson-complete-inner"><strong>✓ ¡Completaste las 8 asociaciones!</strong><a href="teoria.html">Continuar a las 8 fases →</a></div>
+</div><script>
+const data=[{"id": 1, "phase": "Definir el objetivo", "definition": "Identificar qué problema resolverá el modelo.", "example": "San Pedro decide clasificar a cada persona como BUENA o MALA."}, {"id": 2, "phase": "Recolectar datos", "definition": "Obtener información relevante y representativa.", "example": "Reúne expedientes históricos y sus etiquetas BUENO/MALO."}, {"id": 3, "phase": "Preparar y explorar datos", "definition": "Examinar, limpiar y transformar los datos.", "example": "Corrige expedientes duplicados, incompletos o mal etiquetados."}, {"id": 4, "phase": "Seleccionar variables", "definition": "Elegir las características útiles para el modelo.", "example": "Decide qué datos del expediente ayudan realmente a clasificar."}, {"id": 5, "phase": "Entrenar el modelo", "definition": "Aprender patrones utilizando los datos de entrenamiento.", "example": "El modelo aprende de los expedientes históricos etiquetados."}, {"id": 6, "phase": "Validar y evaluar", "definition": "Comparar modelos y comprobar su desempeño con datos reservados.", "example": "Prueba el modelo con expedientes que no utilizó para entrenarlo."}, {"id": 7, "phase": "Desplegar e inferir", "definition": "Poner el modelo en uso para generar predicciones nuevas.", "example": "Conecta el modelo a la puerta y clasifica a quienes van llegando."}, {"id": 8, "phase": "Monitorear y mejorar", "definition": "Vigilar resultados y regresar a etapas anteriores si hace falta.", "example": "Revisa errores de la puerta y decide qué corregir o reentrenar."}];
+const bank=document.getElementById('bank'),slots=document.getElementById('slots'),feedback=document.getElementById('feedback'),progress=document.getElementById('progress');
+let round=0,placed={},selected=null,completed=false,order=[];
+const shuffle=a=>{let b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+function tile(id,inSlot=false){const x=data.find(t=>t.id===id),e=document.createElement('div');e.className='tile';e.textContent=round===0?x.definition:x.example;e.dataset.id=id;e.tabIndex=0;e.draggable=false;e.setAttribute('role','button');e.setAttribute('aria-label',e.textContent);e.onclick=ev=>{ev.stopPropagation();if(performance.now()<suppressClickUntil)return;if(completed)return;if(inSlot){unplace(id);return}selected=id;render()};e.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();e.click()}};e.addEventListener('pointerdown',startPointerDrag);if(selected===id&&!inSlot)e.classList.add('selected');return e}
+function unplace(id){for(const k in placed)if(placed[k]===id)delete placed[k];selected=null;render();feedback.textContent='Respuesta retirada. Puedes volver a colocarla.'}
+function place(id,slot){if(completed)return;for(const k in placed)if(placed[k]===id)delete placed[k];placed[slot]=id;selected=null;render();feedback.textContent='Asociación registrada. Completa las ocho y califica.'}
+function render(){
+ bank.replaceChildren();slots.replaceChildren();
+ for(const id of order){if(!Object.values(placed).includes(id))bank.appendChild(tile(id))}
+ for(const x of data){
+  const s=document.createElement('div');s.className='slot'+(placed[x.id]?' filled':'');
+  s.tabIndex=0;s.setAttribute('role','button');s.setAttribute('aria-label',`Cajón de fase ${x.id}: ${x.phase}`);s.dataset.phase=x.id;
+  const heading=document.createElement('div');heading.className='slot-label';
+  const number=document.createElement('span');number.className='slot-number';number.textContent=x.id;
+  const name=document.createElement('span');name.textContent=x.phase;heading.append(number,name);s.appendChild(heading);
+  if(round===1){const d=document.createElement('div');d.className='slot-definition';d.textContent=x.definition;s.appendChild(d)}
+  const target=document.createElement('div');target.className='slot-target';
+  if(placed[x.id])target.appendChild(tile(placed[x.id],true));else target.textContent='Suelta aquí tu respuesta';
+  s.appendChild(target);
+  s.ondragover=ev=>{ev.preventDefault();s.classList.add('over')};
+  s.ondragleave=()=>s.classList.remove('over');
+  s.ondrop=ev=>{ev.preventDefault();s.classList.remove('over');const id=Number(ev.dataTransfer.getData('text/plain'));if(data.some(t=>t.id===id))place(id,x.id)};
+  s.onclick=()=>{if(selected!==null)place(selected,x.id);else if(placed[x.id])unplace(placed[x.id])};
+  s.onkeydown=ev=>{if(ev.target!==s)return;if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();s.click()}};
+  slots.appendChild(s)
+ }
+ progress.textContent=`${Object.keys(placed).length} / 8 asociaciones`
+}
+function begin(r){
+ round=r;placed={};selected=null;completed=false;order=shuffle(data).map(x=>x.id);
+ 
+ 
+ document.body.classList.remove('activity-passed');document.getElementById('lessonCompleteBar').classList.add('hidden');
+ document.getElementById('bankTitle').textContent=r===0?'1 · DEFINICIONES PARA ARRASTRAR':'1 · EJEMPLOS DE SAN PEDRO';
+ document.getElementById('instruction').textContent='Relaciona las descripciones con las ocho fases que aparecen numeradas y en orden.';
+ document.getElementById('check').classList.remove('hidden');
+ document.getElementById('nextRound').classList.add('hidden');
+ document.getElementById('nextLesson').classList.add('hidden');
+ feedback.textContent='Completa las ocho asociaciones y presiona Calificar.';render()
+}
+document.getElementById('check').onclick=()=>{if(completed)return;const count=Object.keys(placed).length;if(count!==8){feedback.textContent=`Has colocado ${count} de 8 tarjetas. Completa todas antes de calificar.`;return}let correct=0;for(const x of data){const s=slots.querySelector(`[data-phase="${x.id}"]`);s.classList.remove('correct','wrong');if(placed[x.id]===x.id){correct++;s.classList.add('correct')}else s.classList.add('wrong')}if(correct!==8){feedback.textContent=`${correct} de 8 correctas. Revisa las casillas resaltadas e inténtalo de nuevo; puedes mover las tarjetas.`;return}completed=true;feedback.textContent='¡Aprobado! Relacionaste correctamente las ocho descripciones. Continúa con la segunda barrida.';document.getElementById('check').classList.add('hidden');document.getElementById('nextLesson').classList.remove('hidden');document.body.classList.add('activity-passed');document.getElementById('lessonCompleteBar').classList.remove('hidden');document.getElementById('controlPanel').scrollIntoView({behavior:'smooth',block:'center'})};
+document.getElementById('nextRound').onclick=()=>{document.getElementById('board').classList.add('hidden');document.getElementById('controlPanel').classList.add('hidden');document.getElementById('explain').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})};document.getElementById('readDone').onclick=()=>{document.getElementById('explain').classList.add('hidden');document.getElementById('board').classList.remove('hidden');document.getElementById('controlPanel').classList.remove('hidden');begin(1);window.scrollTo({top:0,behavior:'smooth'})};document.getElementById('reset').onclick=()=>begin(round);const lessonNotes=[{title:'Definir el objetivo',text:'Decidir qué problema queremos resolver y qué resultado necesitamos.'},{title:'Recolectar datos',text:'Reunir ejemplos e información relacionada con ese objetivo.'},{title:'Preparar y explorar datos',text:'Revisar los datos para entenderlos y corregir los problemas evidentes.'},{title:'Seleccionar variables',text:'Decidir qué datos de entrada son realmente útiles para el objetivo.'},{title:'Entrenar el modelo',text:'Mostrar ejemplos históricos al modelo para que aprenda patrones.'},{title:'Validar y evaluar',text:'Comprobar la calidad de las predicciones con casos separados de los usados para entrenar.'},{title:'Desplegar e inferir',text:'Poner el modelo a disposición de usuarios o sistemas y hacer predicciones nuevas.'},{title:'Monitorear y mejorar',text:'Observar cómo funciona con el tiempo y corregir o volver a otras fases si hace falta.'}];document.getElementById('explainGrid').innerHTML=lessonNotes.map((x,i)=>'<article class="recap-card"><h3>'+(i+1)+'. '+x.title+'</h3><p>'+x.text+'</p></article>').join('');begin(0);
+
+// Arrastre controlado: evita depender del comportamiento nativo del navegador.
+// El desplazamiento vertical sigue activo aunque el puntero permanezca inmóvil
+// junto a un borde. Funciona en ratón, táctil y lápiz.
+let pointerDrag=null,scrollLoop=null,suppressClickUntil=0;
+const EDGE=145;
+function startPointerDrag(ev){
+  if(completed||ev.button!==0)return;
+  const original=ev.currentTarget;
+  if(original.closest('.slot'))return; // Para retirar una tarjeta colocada basta con tocarla.
+  pointerDrag={id:Number(original.dataset.id),startX:ev.clientX,startY:ev.clientY,x:ev.clientX,y:ev.clientY,pointerId:ev.pointerId,moving:false,ghost:null};
+  if(ev.pointerType!=='mouse')ev.preventDefault();
+  window.addEventListener('pointermove',movePointerDrag,{passive:false});
+  window.addEventListener('pointerup',endPointerDrag);
+  window.addEventListener('pointercancel',cancelPointerDrag);
+}
+function makeGhost(){
+  if(!pointerDrag||pointerDrag.ghost)return;
+  const x=data.find(v=>v.id===pointerDrag.id);
+  const ghost=document.createElement('div');
+  ghost.className='drag-ghost';
+  ghost.textContent=round===0?x.definition:x.example;
+  document.body.appendChild(ghost);
+  pointerDrag.ghost=ghost;
+  pointerDrag.moving=true;
+  positionGhost();
+  scrollLoop=requestAnimationFrame(scrollDragging);
+}
+function positionGhost(){
+  if(pointerDrag&&pointerDrag.ghost){
+    pointerDrag.ghost.style.left=(pointerDrag.x+15)+'px';
+    pointerDrag.ghost.style.top=(pointerDrag.y+14)+'px';
+  }
+}
+function highlightUnderPointer(){
+  document.querySelectorAll('.slot.over').forEach(s=>s.classList.remove('over'));
+  if(!pointerDrag||!pointerDrag.moving)return;
+  const el=document.elementFromPoint(pointerDrag.x,pointerDrag.y);
+  const slot=el?.closest('.slot');
+  if(slot)slot.classList.add('over');
+}
+function movePointerDrag(ev){
+  if(!pointerDrag||ev.pointerId!==pointerDrag.pointerId)return;
+  pointerDrag.x=ev.clientX;pointerDrag.y=ev.clientY;
+  if(!pointerDrag.moving && Math.hypot(ev.clientX-pointerDrag.startX,ev.clientY-pointerDrag.startY)>8)makeGhost();
+  if(pointerDrag.moving){ev.preventDefault();positionGhost();highlightUnderPointer()}
+}
+function scrollDragging(){
+  if(!pointerDrag||!pointerDrag.moving){scrollLoop=null;return}
+  const y=pointerDrag.y,edge=Math.min(EDGE,Math.max(70,innerHeight*.21));
+  let speed=0;
+  if(y<edge)speed=-Math.round(5+27*Math.pow((edge-Math.max(0,y))/edge,1.3));
+  else if(y>innerHeight-edge)speed=Math.round(5+27*Math.pow((Math.min(innerHeight,y)-(innerHeight-edge))/edge,1.3));
+  if(speed)window.scrollBy(0,speed);
+  highlightUnderPointer();
+  scrollLoop=requestAnimationFrame(scrollDragging);
+}
+function cleanPointerDrag(){
+  if(scrollLoop!==null){cancelAnimationFrame(scrollLoop);scrollLoop=null}
+  window.removeEventListener('pointermove',movePointerDrag);
+  window.removeEventListener('pointerup',endPointerDrag);
+  window.removeEventListener('pointercancel',cancelPointerDrag);
+  pointerDrag?.ghost?.remove();
+  document.querySelectorAll('.slot.over').forEach(s=>s.classList.remove('over'));
+  pointerDrag=null;
+}
+function endPointerDrag(ev){
+  if(!pointerDrag||ev.pointerId!==pointerDrag.pointerId)return;
+  if(pointerDrag.moving){
+    const el=document.elementFromPoint(pointerDrag.x,pointerDrag.y);
+    const slot=el?.closest('.slot');
+    const id=pointerDrag.id;
+    suppressClickUntil=performance.now()+450;
+    cleanPointerDrag();
+    if(slot&&slot.dataset.phase)place(id,Number(slot.dataset.phase));
+    else feedback.textContent='Arrastra la tarjeta hasta el cajón de una fase o selecciónala con un clic.';
+  }else cleanPointerDrag();
+}
+function cancelPointerDrag(){cleanPointerDrag()}
+// El clic que sigue a un arrastre no debe seleccionar la tarjeta por error.
+document.addEventListener('click',ev=>{
+  if(performance.now()<suppressClickUntil && (ev.target.closest('.tile')||ev.target.closest('.slot'))){ev.preventDefault();ev.stopImmediatePropagation()}
+},true);
+window.addEventListener('blur',cancelPointerDrag);
+</script></body></html>
