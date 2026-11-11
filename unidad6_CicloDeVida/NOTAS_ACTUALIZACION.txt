@@ -1,0 +1,1 @@
+Fase 7 ampliada con cuatro tipos de inferencia (real-time, batch, asynchronous, serverless), ejemplos empresariales, latencia y reglas para diferenciarlos. Conserva ejercicios iniciales, resto de teoria y reto final de 40 preguntas en 4 bloques de 10.
