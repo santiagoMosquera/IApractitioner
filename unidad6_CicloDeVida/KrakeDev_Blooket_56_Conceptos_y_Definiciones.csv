@@ -1,0 +1,57 @@
+﻿Question #,Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit (sec),Correct Answer(s)
+1,¿Qué caracteriza a Deep Learning?,Aprender sin datos de entrenamiento,Utilizar redes neuronales con múltiples capas,Seguir reglas fijas definidas manualmente,Agrupar clientes únicamente por similitud,20,2
+2,"¿Cuál es la relación correcta entre IA, ML y DL?",Los tres conceptos significan lo mismo,ML y DL están fuera de IA,"IA está dentro de DL, y DL dentro de ML","DL está dentro de ML, y ML dentro de IA",20,4
+3,¿Qué caracteriza a Machine Learning?,Solo sigue reglas fijas programadas,Funciona sin ningún tipo de datos,Aprende patrones a partir de datos,Se utiliza únicamente con imágenes,20,3
+4,¿Qué aprendizaje utiliza ejemplos con etiquetas conocidas?,Aprendizaje por refuerzo,Aprendizaje no supervisado,Inferencia por lotes,Aprendizaje supervisado,20,4
+5,¿Qué aprendizaje busca patrones sin etiquetas?,Aprendizaje incremental etiquetado,Aprendizaje supervisado,Aprendizaje no supervisado,Aprendizaje por refuerzo,20,3
+6,¿Qué aprendizaje utiliza recompensas por acciones?,Aprendizaje no supervisado,Clasificación por lotes,Aprendizaje supervisado,Aprendizaje por refuerzo,20,4
+7,¿Qué tarea predice categorías como fraude o no fraude?,Regresión,Clasificación,Clustering,Normalización,20,2
+8,¿Qué tarea predice un valor como el precio de una casa?,Clustering,Detección de entidades,Regresión,Clasificación,20,3
+9,¿Qué significa clustering?,Asignar una categoría ya definida,Agrupar datos similares sin etiquetas previas,Predecir una cantidad numérica,Transformar texto en voz,20,2
+10,¿Qué servicio AWS identifica objetos en fotografías?,Amazon Comprehend,Amazon Rekognition,Amazon Textract,Amazon Translate,20,2
+11,¿Qué servicio AWS extrae texto de documentos escaneados?,Amazon Textract,Amazon Polly,Amazon Rekognition,Amazon Transcribe,20,1
+12,¿Qué servicio AWS analiza sentimientos de un texto?,Amazon Translate,Amazon Comprehend,Amazon Textract,Amazon Polly,20,2
+13,¿Qué servicio AWS convierte texto en voz?,Amazon Comprehend,Amazon Translate,Amazon Polly,Amazon Transcribe,20,3
+14,¿Qué servicio AWS convierte audio en texto?,Amazon Transcribe,Amazon Translate,Amazon Textract,Amazon Polly,20,1
+15,¿Qué servicio AWS traduce de un idioma a otro?,Amazon Translate,Amazon Comprehend,Amazon Polly,Amazon Transcribe,20,1
+16,¿Qué son datos estructurados?,Fotografías y grabaciones de voz,Archivos sin ninguna organización,Texto libre sin campos fijos,Datos organizados en campos o columnas,20,4
+17,¿Qué es un ejemplo de dato no estructurado?,Una grabación de una llamada,Una lista de montos en columnas,Una tabla de clientes,Un registro con fecha y temperatura,20,1
+18,¿Qué significa que los datos sean representativos?,Que reflejen los casos reales que enfrentará el modelo,Que provengan de un único grupo,Que todos tengan el mismo valor,Que tengan solo ejemplos fáciles,20,1
+19,¿Qué es un sesgo de datos?,Un tipo de modelo de regresión,Un endpoint de baja latencia,Una opción de traducción automática,Una representación que puede favorecer o perjudicar ciertos casos,20,4
+20,¿Qué es una etiqueta en aprendizaje supervisado?,La respuesta conocida asociada a un ejemplo,La velocidad de inferencia,Una configuración del servidor,El número de veces que se entrena,20,1
+21,¿Qué significa EDA?,External Data Access,Enhanced Deep Architecture,Exploratory Data Analysis,Endpoint Deployment Automation,20,3
+22,¿Para qué sirve EDA?,"Para explorar distribuciones, patrones y problemas de los datos",Para convertir audio en texto,Para cambiar la API del modelo,Para publicar el modelo en producción,20,1
+23,¿Qué significa Data Cleaning?,Limpieza y corrección de datos,Agrupamiento de clientes,Despliegue de modelos,Ajuste de un endpoint,20,1
+24,¿Qué es deduplicación?,Seleccionar un modelo de voz,Aumentar el número de capas,Crear nuevas etiquetas,Eliminar registros repetidos,20,4
+25,¿Qué significa missing values?,Datos almacenados en otra región,Valores faltantes en los datos,Predicciones con alta confianza,Valores calculados por el endpoint,20,2
+26,¿Qué significa data preprocessing?,Preparar y transformar datos antes del entrenamiento,Consultar predicciones ya generadas,Configurar un servidor web,Obtener respuestas del modelo desplegado,20,1
+27,¿Para qué sirve el conjunto de entrenamiento?,Para almacenar solo predicciones,Para atender solicitudes reales,Para evaluar definitivamente el modelo,Para que el modelo aprenda a partir de los datos,20,4
+28,¿Para qué sirve el conjunto de validación?,Para almacenar documentos originales,Para sustituir todos los datos de entrenamiento,Para comparar y ajustar decisiones durante el desarrollo,Para producir predicciones para clientes,20,3
+29,¿Para qué sirve el conjunto de prueba?,Para configurar el tipo de endpoint,Para evaluar el modelo con datos reservados,Para volver a entrenar todos los parámetros,Para almacenar las etiquetas creadas,20,2
+30,¿Qué significa data leakage?,Aprender mediante recompensas,Uso indebido de información que contamina el entrenamiento o evaluación,Transformar categorías en números,Cambio natural en los datos de producción,20,2
+31,¿Qué es una feature?,La respuesta correcta que se predice,Un resultado de la inferencia,Un indicador de tiempo de respuesta,Una característica utilizada como entrada del modelo,20,4
+32,¿Qué es el target de un modelo supervisado?,La variable que se quiere predecir,La región donde funciona la API,Una característica de entrada,La duración del entrenamiento,20,1
+33,¿Qué significa Feature Engineering?,Publicar el modelo mediante una API,"Crear, transformar o seleccionar características útiles",Cambiar la modalidad de inferencia,Calcular únicamente accuracy,20,2
+34,¿Qué es entrenar un modelo ML?,Monitorear una aplicación ya publicada,Solicitar una predicción a un endpoint,Traducir un texto con un modelo existente,Ajustar un modelo para aprender patrones de los datos,20,4
+35,¿Qué son los parámetros de un modelo?,Datos reservados para la prueba,Tipos de conexión con una API,Valores internos aprendidos durante el entrenamiento,Opciones de configuración definidas antes de entrenar,20,3
+36,¿Qué son los hiperparámetros?,Predicciones generadas para clientes,Configuraciones que controlan el proceso de entrenamiento,Las etiquetas del conjunto de prueba,Valores que siempre calcula automáticamente el modelo,20,2
+37,¿Qué es overfitting?,Predecir categorías sin usar etiquetas,Mantener el mismo rendimiento en todos los conjuntos,Aprender demasiado el entrenamiento y fallar con datos nuevos,No aprender patrones ni en entrenamiento,20,3
+38,¿Qué es underfitting?,Realizar inferencia en tiempo real,No captar bien los patrones ni siquiera en entrenamiento,Detectar cambios en datos productivos,Memorizar demasiado los ejemplos de entrenamiento,20,2
+39,¿Qué significa generalización?,Cambiar automáticamente todos los hiperparámetros,Recordar solamente los ejemplos de entrenamiento,Funcionar bien con datos nuevos no vistos,Reducir el número de etiquetas disponibles,20,3
+40,¿Qué mide Accuracy?,Aciertos globales en positivos y negativos,Cuántas alertas positivas fueron correctas,Cuánto tarda el modelo en responder,Cuántos positivos reales fueron detectados,20,1
+41,¿Qué mide Precision?,El tiempo de respuesta de la API,"De los positivos reales, cuántos se detectaron",El total de aciertos positivos y negativos,"De las predicciones positivas, cuántas fueron correctas",20,4
+42,¿Qué mide Recall?,"De los positivos reales, cuántos logró detectar el modelo",El total de aciertos de ambas clases,La confianza de una sola predicción,"De las alertas positivas, cuántas son verdaderas",20,1
+43,¿Qué combina F1-score?,Parámetros e hiperparámetros,Datos de entrenamiento y prueba,Precision y Recall,Accuracy y latencia,20,3
+44,Para detectar la mayor cantidad de fraudes reales se prioriza:,Precision,Latencia,Accuracy,Recall,20,4
+45,Para reducir falsas alarmas positivas se prioriza:,Precision,Recall,Data Cleaning,Clustering,20,1
+46,¿Qué es inferencia en ML?,Aplicar un modelo entrenado a datos nuevos,Limpiar registros repetidos,Seleccionar los hiperparámetros,Recolectar datos para entrenamiento,20,1
+47,¿Qué es un endpoint de inferencia?,Una técnica para limpiar datos,Un punto de acceso para solicitar predicciones,Una métrica de clasificación,Un archivo con todas las etiquetas,20,2
+48,¿Qué modalidad procesa grandes conjuntos sin exigir respuesta inmediata?,Real-time inference,Monitoreo continuo,Batch inference,Inferencia síncrona por solicitud,20,3
+49,¿Qué modalidad permite enviar un trabajo largo y recuperar el resultado después?,Asynchronous inference,Data preprocessing,Real-time inference,Feature Engineering,20,1
+50,¿Qué caracteriza a la inferencia serverless?,Significa que todas las respuestas son asíncronas,Siempre exige servidores dedicados permanentes,Se utiliza únicamente durante el entrenamiento,AWS administra y escala los recursos de infraestructura,20,4
+51,¿Qué es latencia de inferencia?,Porcentaje de datos no estructurados,Número de etiquetas de clasificación,Tiempo que tarda en obtenerse una respuesta,Cantidad de ejemplos del entrenamiento,20,3
+52,¿Qué significa Data Drift?,Uso de datos de prueba en entrenamiento,Cambio en la distribución de los datos de entrada,Ajuste de hiperparámetros,Cambio de una variable objetivo por otra,20,2
+53,¿Qué significa Concept Drift?,Repetición de registros de entrenamiento,Cambio en la relación entre entradas y resultados,Uso de una voz diferente en Polly,Cambio de formato de archivos originales,20,2
+54,¿Qué significa DevOps?,Tipo de aprendizaje no supervisado,Métrica para detectar falsos positivos,"Prácticas para desarrollar, desplegar y operar software",Técnica para reconocer objetos en imágenes,20,3
+55,¿Qué significa MLOps?,Una forma de tokenizar documentos,Una métrica que combina precision y recall,Una variante de inferencia por lotes,"Prácticas para desplegar, monitorear y mantener modelos ML",20,4
+56,¿Qué es reentrenamiento?,Cambiar siempre el idioma de los documentos,Aumentar el tiempo de respuesta del endpoint,Volver a entrenar para actualizar un modelo con datos adecuados,Repetir exactamente la misma predicción,20,3
