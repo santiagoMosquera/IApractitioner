@@ -1,0 +1,61 @@
+﻿N°,Tema,Pregunta,Respuesta correcta
+1,Plataforma,¿Qué servicio reúne herramientas para crear modelos de ML en AWS?,Amazon SageMaker AI
+2,Plataforma,¿Qué es SageMaker Studio?,Entorno de desarrollo de ML
+3,Plataforma,¿Qué integra SageMaker Unified Studio?,"Datos, analítica e IA"
+4,Plataforma,¿Qué permite SageMaker Canvas?,Trabajar con ML sin programar
+5,Plataforma,¿Qué distingue a Canvas de Studio?,Su interfaz visual sin código
+6,Plataforma,¿Qué es un dominio de SageMaker AI?,Entorno que organiza usuarios y recursos
+7,Plataforma,¿Qué identifica a un perfil de usuario en SageMaker?,Una identidad de trabajo en el dominio
+8,Datos,¿Qué es un dataset?,Conjunto de datos
+9,Datos,¿Cuál es un ejemplo de dato estructurado?,Tabla de clientes
+10,Datos,¿Cuál es un dato no estructurado?,Una fotografía
+11,Datos,¿Qué es una feature?,Variable de entrada del modelo
+12,Datos,¿Qué es el target?,Variable que queremos predecir
+13,Datos,¿Qué indica la columna Cancela_Servicio?,La variable objetivo
+14,Datos,¿Qué servicio suele guardar datasets para SageMaker?,Amazon S3
+15,Datos,¿Qué almacena Amazon S3?,Objetos y archivos
+16,Datos,¿Para qué sirve EDA?,Explorar y comprender los datos
+17,Datos,¿Qué significa Data Cleaning?,Limpieza de datos
+18,Datos,¿Qué es Data Imputation?,Completar valores faltantes
+19,Datos,¿Para qué sirve Data Wrangler?,Preparar y transformar datos
+20,Datos,¿Qué es Feature Engineering?,Crear o transformar características
+21,Datos,¿Qué es Feature Selection?,Elegir variables útiles
+22,Datos,¿Qué hace SageMaker Ground Truth?,Etiquetar datos
+23,Entrenamiento,¿Qué ocurre durante el entrenamiento?,El modelo aprende patrones
+24,Entrenamiento,¿Qué significa AutoML?,Automatizar tareas de ML
+25,Entrenamiento,¿Qué herramienta ofrece AutoML en SageMaker?,SageMaker Autopilot
+26,Entrenamiento,¿Qué opción de Canvas prioriza rapidez?,Quick Build
+27,Entrenamiento,¿Qué opción de Canvas explora más candidatos?,Standard Build
+28,Entrenamiento,¿Qué predice una clasificación?,Una categoría
+29,Entrenamiento,¿Qué predice una regresión?,Un valor numérico
+30,Entrenamiento,¿Qué busca una serie temporal?,Predecir valores futuros
+31,Evaluación,¿Para qué sirve el conjunto Train?,Para aprender patrones
+32,Evaluación,¿Para qué sirve el conjunto Validation?,Para ajustar y elegir modelos
+33,Evaluación,¿Para qué sirve el conjunto Test?,Para evaluar con datos independientes
+34,Evaluación,¿Qué es overfitting?,Sobreajuste
+35,Evaluación,¿Qué es underfitting?,Ajuste insuficiente
+36,Evaluación,¿Qué mide accuracy?,Proporción total de aciertos
+37,Evaluación,¿Qué mide precision?,Calidad de positivos predichos
+38,Evaluación,¿Qué mide recall?,Positivos reales detectados
+39,Evaluación,¿Qué combina F1-score?,Precision y recall
+40,Evaluación,¿Qué significa Data Leakage?,Fuga de información indebida
+41,Evaluación,¿Qué es Train-Test Contamination?,Datos de Train presentes en Test
+42,Evaluación,¿Qué es Target Leakage?,Usar información que revela el resultado
+43,Evaluación,¿Qué columna podría revelar una cancelación futura?,Fecha_Cancelacion
+44,Herramientas,¿Qué permite SageMaker Clarify?,Analizar sesgos y explicaciones
+45,Inferencia,¿Qué es inferencia?,Usar un modelo para predecir
+46,Inferencia,¿Qué es un endpoint?,Punto de acceso a un modelo
+47,Inferencia,¿Qué caracteriza la inferencia en tiempo real?,Respuesta de baja latencia
+48,Inferencia,¿Qué caracteriza la inferencia batch?,Predicciones por lotes
+49,Inferencia,¿Qué caracteriza la inferencia asíncrona?,Solicitudes en cola con respuesta diferida
+50,Inferencia,¿Qué caracteriza Serverless Inference?,Infraestructura administrada bajo demanda
+51,Modelos,¿Qué ofrece Ready-to-use models en Canvas?,Modelos listos para utilizar
+52,Modelos,¿Qué ofrece SageMaker JumpStart?,Catálogo de modelos preentrenados
+53,Operación,¿Qué significa deployment?,Poner el modelo en uso
+54,Operación,¿Qué significa MLOps?,Operación y mantenimiento continuo de ML
+55,Operación,¿Qué hace SageMaker Model Monitor?,Supervisar modelos desplegados
+56,Operación,¿Qué significa Data Drift?,Cambio en distribución de datos
+57,Operación,¿Qué hace SageMaker Pipelines?,Orquestar flujos de ML
+58,Operación,¿Qué guarda SageMaker Feature Store?,Features reutilizables
+59,Operación,¿Qué gestiona SageMaker Model Registry?,Versiones y aprobaciones
+60,Operación,¿Qué contiene SageMaker Model Cards?,Documentación y límites del modelo

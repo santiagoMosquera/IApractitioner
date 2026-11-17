@@ -1,0 +1,61 @@
+﻿Question #,Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit (sec),Correct Answer(s)
+1,¿Qué servicio reúne herramientas para crear modelos de ML en AWS?,Amazon SageMaker AI,Amazon S3,Amazon Route 53,AWS IAM,15,1
+2,¿Qué es SageMaker Studio?,Almacén de objetos,Entorno de desarrollo de ML,Servicio de correo,Herramienta de facturación,15,2
+3,¿Qué integra SageMaker Unified Studio?,Solo archivos CSV,Únicamente permisos IAM,"Datos, analítica e IA",Solo registros de DNS,15,3
+4,¿Qué permite SageMaker Canvas?,Gestionar dominios web,Enviar correos,Configurar redes privadas,Trabajar con ML sin programar,15,4
+5,¿Qué distingue a Canvas de Studio?,Su interfaz visual sin código,Que Canvas almacena objetos,Que Studio es un dataset,Que Studio solo etiqueta imágenes,15,1
+6,¿Qué es un dominio de SageMaker AI?,Archivo con predicciones,Entorno que organiza usuarios y recursos,Modelo de clasificación,Métrica de precisión,15,2
+7,¿Qué identifica a un perfil de usuario en SageMaker?,Una columna de etiquetas,Un endpoint batch,Una identidad de trabajo en el dominio,Un modelo preentrenado,15,3
+8,¿Qué es un dataset?,Modelo ya desplegado,Tipo de endpoint,Registro de versiones,Conjunto de datos,15,4
+9,¿Cuál es un ejemplo de dato estructurado?,Tabla de clientes,Fotografía sin etiquetas,Audio libre,Video sin estructura,15,1
+10,¿Cuál es un dato no estructurado?,Una tabla de ventas,Una fotografía,Un CSV tabular,Una fila con columnas,15,2
+11,¿Qué es una feature?,Resultado que se predice,Servidor de inferencia,Variable de entrada del modelo,Número de versión,15,3
+12,¿Qué es el target?,Nombre del bucket,Costo de entrenamiento,Tipo de servidor,Variable que queremos predecir,15,4
+13,¿Qué indica la columna Cancela_Servicio?,La variable objetivo,Un permiso IAM,El tipo de instancia,Una versión del modelo,15,1
+14,¿Qué servicio suele guardar datasets para SageMaker?,Amazon Route 53,Amazon S3,Amazon SES,AWS Shield,15,2
+15,¿Qué almacena Amazon S3?,Solo permisos,Únicamente endpoints,Objetos y archivos,Solo modelos aprobados,15,3
+16,¿Para qué sirve EDA?,Desplegar endpoints,Aprobar versiones,Controlar dominios,Explorar y comprender los datos,15,4
+17,¿Qué significa Data Cleaning?,Limpieza de datos,Despliegue de modelos,Predicción online,Monitoreo de drift,15,1
+18,¿Qué es Data Imputation?,Crear un endpoint,Completar valores faltantes,Cambiar una contraseña,Aprobar un modelo,15,2
+19,¿Para qué sirve Data Wrangler?,Aprobar modelos,Medir sesgo del modelo,Preparar y transformar datos,Desplegar un LLM,15,3
+20,¿Qué es Feature Engineering?,Eliminar el dominio,Autorizar acceso IAM,Publicar una versión,Crear o transformar características,15,4
+21,¿Qué es Feature Selection?,Elegir variables útiles,Entrenar por lotes,Etiquetar imágenes,Detener instancias,15,1
+22,¿Qué hace SageMaker Ground Truth?,Monitorear endpoints,Etiquetar datos,Gestionar versiones,Almacenar objetos,15,2
+23,¿Qué ocurre durante el entrenamiento?,El modelo solo recibe consultas,Se aprueba una versión,El modelo aprende patrones,Se elimina el dataset,15,3
+24,¿Qué significa AutoML?,Almacenar imágenes,Aprobar permisos,Crear zonas DNS,Automatizar tareas de ML,15,4
+25,¿Qué herramienta ofrece AutoML en SageMaker?,SageMaker Autopilot,SageMaker Clarify,Amazon Route 53,Model Registry,15,1
+26,¿Qué opción de Canvas prioriza rapidez?,Standard Build,Quick Build,Model Monitor,Model Cards,15,2
+27,¿Qué opción de Canvas explora más candidatos?,Quick Build,Online Store,Standard Build,Ground Truth,15,3
+28,¿Qué predice una clasificación?,Siempre un precio,Un recurso IAM,Una región AWS,Una categoría,15,4
+29,¿Qué predice una regresión?,Un valor numérico,Solo una etiqueta Sí/No,Un bucket S3,Un permiso,15,1
+30,¿Qué busca una serie temporal?,Asignar roles IAM,Predecir valores futuros,Aprobar modelos,Etiquetar imágenes,15,2
+31,¿Para qué sirve el conjunto Train?,Para la evaluación final,Para guardar el modelo,Para aprender patrones,Para aprobar versiones,15,3
+32,¿Para qué sirve el conjunto Validation?,Para el uso en producción,Para guardar permisos,Para registrar un bucket,Para ajustar y elegir modelos,15,4
+33,¿Para qué sirve el conjunto Test?,Para evaluar con datos independientes,Para copiar datos de Train,Para entrenar más épocas,Para etiquetar registros,15,1
+34,¿Qué es overfitting?,Falta de entrenamiento,Sobreajuste,Datos sin columnas,Despliegue automático,15,2
+35,¿Qué es underfitting?,Memorización excesiva,Predicción batch,Ajuste insuficiente,Etiquetado manual,15,3
+36,¿Qué mide accuracy?,Solo falsos positivos,Tiempo de respuesta,Número de features,Proporción total de aciertos,15,4
+37,¿Qué mide precision?,Calidad de positivos predichos,Todos los positivos reales,Número de columnas,Costo del endpoint,15,1
+38,¿Qué mide recall?,Tamaño del bucket,Positivos reales detectados,Tiempo de entrenamiento,Aprobaciones pendientes,15,2
+39,¿Qué combina F1-score?,Costo y memoria,S3 e IAM,Precision y recall,Studio y Canvas,15,3
+40,¿Qué significa Data Leakage?,Cambio natural de datos,Almacenamiento en S3,Uso de un endpoint,Fuga de información indebida,15,4
+41,¿Qué es Train-Test Contamination?,Datos de Train presentes en Test,Cambio de datos en producción,Versiones aprobadas,Etiquetado automático,15,1
+42,¿Qué es Target Leakage?,Falta de datos numéricos,Usar información que revela el resultado,Exceso de endpoints,Error de permisos IAM,15,2
+43,¿Qué columna podría revelar una cancelación futura?,Edad,Antiguedad_Meses,Fecha_Cancelacion,Gasto_Mensual,15,3
+44,¿Qué permite SageMaker Clarify?,Etiquetar fotografías,Registrar versiones,Almacenar datasets,Analizar sesgos y explicaciones,15,4
+45,¿Qué es inferencia?,Usar un modelo para predecir,Entrenar desde cero,Etiquetar datos,Aprobar permisos,15,1
+46,¿Qué es un endpoint?,Archivo CSV,Punto de acceso a un modelo,Métrica del entrenamiento,Etiqueta del dataset,15,2
+47,¿Qué caracteriza la inferencia en tiempo real?,Procesamiento solo nocturno,Ausencia de consultas,Respuesta de baja latencia,Etiquetado manual,15,3
+48,¿Qué caracteriza la inferencia batch?,Aprobación de versiones,Explicación de sesgos,Creación de etiquetas,Predicciones por lotes,15,4
+49,¿Qué caracteriza la inferencia asíncrona?,Solicitudes en cola con respuesta diferida,Respuesta siempre inmediata,Entrenamiento sin datos,Aprobación automática,15,1
+50,¿Qué caracteriza Serverless Inference?,Instancia siempre encendida,Infraestructura administrada bajo demanda,Solo etiquetado de datos,Únicamente almacenamiento,15,2
+51,¿Qué ofrece Ready-to-use models en Canvas?,Solo modelos por entrenar,Permisos IAM,Modelos listos para utilizar,Grupos de features,15,3
+52,¿Qué ofrece SageMaker JumpStart?,Control de gastos,Creación de dominios DNS,Gestión de usuarios IAM,Catálogo de modelos preentrenados,15,4
+53,¿Qué significa deployment?,Poner el modelo en uso,Eliminar duplicados,Explorar datos,Seleccionar variables,15,1
+54,¿Qué significa MLOps?,Clasificación binaria,Operación y mantenimiento continuo de ML,Almacenamiento de objetos,Registro de dominios,15,2
+55,¿Qué hace SageMaker Model Monitor?,Etiquetar datos,Entrenar manualmente,Supervisar modelos desplegados,Registrar usuarios,15,3
+56,¿Qué significa Data Drift?,Fuga del target,Conjunto de validación,Versión aprobada,Cambio en distribución de datos,15,4
+57,¿Qué hace SageMaker Pipelines?,Orquestar flujos de ML,Almacenar imágenes,Etiquetar datasets,Crear permisos DNS,15,1
+58,¿Qué guarda SageMaker Feature Store?,Solo modelos aprobados,Features reutilizables,Usuarios IAM,Preguntas de evaluación,15,2
+59,¿Qué gestiona SageMaker Model Registry?,Datos etiquetados,Imágenes sin clasificar,Versiones y aprobaciones,Respuestas del endpoint,15,3
+60,¿Qué contiene SageMaker Model Cards?,Credenciales de AWS,Solo imágenes,La contraseña del dominio,Documentación y límites del modelo,15,4

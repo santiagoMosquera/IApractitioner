@@ -1,0 +1,18 @@
+KRAKEDEV · UNIDAD 7 · AMAZON SAGEMAKER AI · AWS CERTIFIED AI PRACTITIONER (AIF-C01)
+
+SECUENCIA DE LA CLASE
+1. Abrir interactivo.html: dos emparejamientos iniciales de 7 conceptos cada uno.
+2. Continuar la teoría desde la misma página.
+3. Terminar con 44 tarjetas contra reloj (20 segundos por pregunta, repaso de errores).
+4. Blooket opcional: partida de 8 minutos usando el banco de 60 preguntas.
+
+ARCHIVOS
+- interactivo.html: actividades, teoría y tarjetas.
+- index.html: resumen complementario del ciclo de vida ML de la práctica anterior.
+- Blooket_SageMaker_60_preguntas.csv: banco CSV para importación en Blooket.
+- Blooket_SageMaker_60_revision.csv: listado de revisión con respuestas.
+- data/: datasets de la práctica, con nombres en español de cancelación.
+
+El Blooket conserva las 60 preguntas existentes (no son casos de certificación).
+No se incorporan imágenes sintéticas generadas de pantallas de AWS.
+Para abrir las páginas, extraer el ZIP y abrir los archivos HTML en el navegador.
