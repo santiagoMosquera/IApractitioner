@@ -16,3 +16,14 @@ ARCHIVOS
 El Blooket conserva las 60 preguntas existentes (no son casos de certificación).
 No se incorporan imágenes sintéticas generadas de pantallas de AWS.
 Para abrir las páginas, extraer el ZIP y abrir los archivos HTML en el navegador.
+
+AJUSTE DE PRESENTACIÓN (17-nov-2026)
+- Canvas Ready-to-use: elegir una tarea preparada y obtener resultados (similar al uso de Rekognition, Textract y Comprehend).
+- JumpStart: elegir y trabajar con modelos de un catálogo para desplegar o personalizar.
+- Naranja: frases relevantes dentro de las descripciones. La línea «Clave» permanece sin resaltados naranjas.
+
+REVISIÓN GENERAL DE RESALTADOS (17-nov-2026)
+- Se revisaron los 52 conceptos teóricos de las seis secciones.
+- En cada descripción se resalta una frase distintiva en naranja, sin colorear indiscriminadamente términos genéricos.
+- Se mantiene el título celeste cuando corresponde a SageMaker y el recordatorio «Clave» en turquesa.
+- Sin cambios en emparejamientos, tarjetas con tiempo ni Blooket.
