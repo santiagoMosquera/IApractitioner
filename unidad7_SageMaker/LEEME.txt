@@ -3,7 +3,7 @@ KRAKEDEV · UNIDAD 7 · AMAZON SAGEMAKER AI · AWS CERTIFIED AI PRACTITIONER (AI
 SECUENCIA DE LA CLASE
 1. Abrir interactivo.html: dos emparejamientos iniciales de 7 conceptos cada uno.
 2. Continuar la teoría desde la misma página.
-3. Terminar con 44 tarjetas contra reloj (20 segundos por pregunta, repaso de errores).
+3. Realizar 53 tarjetas de refuerzo tras los cinco primeros bloques teóricos y 20 tarjetas finales solo de servicios y herramientas SageMaker (20 segundos por pregunta, repaso de errores).
 4. Blooket opcional: partida de 8 minutos usando el banco de 60 preguntas.
 
 ARCHIVOS
@@ -27,3 +27,14 @@ REVISIÓN GENERAL DE RESALTADOS (17-nov-2026)
 - En cada descripción se resalta una frase distintiva en naranja, sin colorear indiscriminadamente términos genéricos.
 - Se mantiene el título celeste cuando corresponde a SageMaker y el recordatorio «Clave» en turquesa.
 - Sin cambios en emparejamientos, tarjetas con tiempo ni Blooket.
+
+ACTUALIZACIÓN DE ACTIVIDADES (17-NOV-2026)
+- Base: ZIP original «KrakeDev_Unidad_7_SageMaker_Resaltados_Completos(1).zip».
+- Conserva ambos emparejamientos de 7 conceptos.
+- Después de cada sección teórica se incorpora un reto de 10 tarjetas con 20 segundos.
+- 60 tarjetas en total; el sexto bloque cierra con comparaciones de servicios de SageMaker.
+- Respuesta, explicación y repaso de errores en cada bloque.
+- Canvas Ready-to-use y JumpStart mejor diferenciados; Feature Store, Pipelines, Registry, Cards y Monitor con ejemplos.
+- Se mantienen index.html, los dos Blooket de 60 preguntas y todos los datasets originales.
+
+ACTUALIZACIÓN DE CERTIFICACIÓN: bloque 2 con Feature Engineering, Feature Selection, Data Wrangler, Ground Truth y Feature Store. Bloque 3 con 13 preguntas: casos específicos de Autopilot, overfitting, underfitting, precision, recall y F1. Cronómetro de 20 segundos por tarjeta.
