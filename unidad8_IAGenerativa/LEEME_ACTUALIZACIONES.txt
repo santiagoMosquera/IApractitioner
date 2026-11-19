@@ -1,0 +1,12 @@
+UNIDAD 8 · ARQUITECTURA MODULAR
+
+1. Abre index.html desde la carpeta principal.
+2. Cada bloque tiene un index.html y carpetas paginas/, infografias/, actividades/.
+3. Para reemplazar una infografía, usa exactamente el mismo nombre de archivo PNG dentro de bloque-XX/infografias/. No cambies el HTML.
+4. Para reemplazar una actividad en su carpeta, conserva el mismo nombre de archivo HTML. No cambies el menú.
+5. Para sustituir el contenido completo de una página, reemplaza solo bloque-XX/paginas/nombre.html.
+6. Los menús se crean desde assets/estructura.js. Para agregar, quitar o reordenar páginas, modifica solo el manifiesto y crea la nueva página en su carpeta. assets/menu.js es el motor de navegación.
+7. assets/estilos.css centraliza los colores de las PÁGINAS; las actividades tienen estilos independientes y aislados mediante iframe.
+8. Este paquete inicial crea la base. En adelante no necesitas descargar ZIP completos: copia solo archivos nuevos o modificados en las rutas fijas.
+9. Las secciones todavía no aprobadas indican “pendiente de revisión”. No se presentan como terminadas.
+10. La actividad de Attention es la recuperada del material anterior. Los simuladores de búsqueda semántica y generación token por token no están integrados: conservamos su lugar en el menú para revisarlos por separado.

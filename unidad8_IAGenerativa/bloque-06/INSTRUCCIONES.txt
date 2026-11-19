@@ -1,0 +1,3 @@
+INSTALACIÓN: Copiar la carpeta bloque-06 dentro de Unidad_8_Modular/ y reemplazar assets/estructura.js con el archivo del ZIP. Se requiere mantener el index.html y assets/estilos.css y assets/menu.js principales ya instalados. Todas las rutas son relativas y el bloque funciona sin internet.
+
+ARCHIVOS FIJOS: bloque-06/infografias/{01..05}-*.png; bloque-06/paginas/{01..06}-*.html. Para sustituir una imagen conservar nombre y ruta. Para cambiar un ejercicio solo reemplazar su HTML.
