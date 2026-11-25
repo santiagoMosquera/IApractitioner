@@ -1,1 +1,49 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Simulación de generación · Unidad 8</title><link rel="stylesheet" href="../../assets/estilos.css"></head><body data-root="../../" data-block="03" data-page="08-generacion-actividad"><header><div class="top"><a class="brand" href="../../index.html">UNIDAD 8</a><span class="crumb">Bloque 3 · Funcionamiento de un LLM</span><nav id="nav-main"></nav></div></header><div class="layout"><aside id="sidebar"></aside><main><section class="card"><span class="tag">Bloque 3 · Página 8 de 9</span><h1>Simulación de generación</h1><div class="notice"><b>Sección pendiente de revisión.</b><p>La estructura y el enlace ya existen. Aquí incorporaremos la infografía o actividad aprobada sin modificar otras páginas.</p><p><small>Ruta fija: bloque-03/paginas/08-generacion-actividad.html</small></p></div></section><nav class="foot"><a class="btn secondary" href="07-generacion.html">← Anterior</a><a class="btn" href="09-comparar-respuestas.html">Siguiente →</a></nav></main></div><script src="../../assets/estructura.js"></script><script src="../../assets/menu.js"></script></body></html>
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Construyamos una respuesta token por token · Unidad 8</title><link href="../../assets/estilos.css" rel="stylesheet"/>
+<style>
+.gen-lab{color:#25233d;background:#fff;line-height:1.55}.gen-lab *{box-sizing:border-box}.gen-intro{background:#f4efff;border:1px solid #e4d9fa;border-radius:17px;padding:18px;margin:16px 0}.gen-intro strong{color:#5726a7}.gen-sentence{font-size:clamp(1.07rem,2.7vw,1.46rem);line-height:1.7;background:linear-gradient(135deg,#f3f8ff,#f8f3ff);border:1px solid #dde6fc;border-radius:19px;padding:20px;min-height:104px;margin:15px 0;overflow-wrap:anywhere}.gen-original{color:#4b5372}.gen-token{background:#eee4ff;border:1px solid #cdb4fc;color:#4d228a;display:inline-block;border-radius:9px;padding:2px 7px;margin:2px 2px;font-weight:800}.gen-end{font-weight:800;color:#37224a}.gen-candidates{display:grid;gap:11px;margin:14px 0}.gen-option{display:grid;grid-template-columns:minmax(135px,1fr) minmax(120px,2fr) 64px;align-items:center;gap:14px;padding:12px 15px;text-align:left;border:1px solid #dcd3f0;background:#fff;color:#272340;border-radius:15px;font:inherit;cursor:pointer;box-shadow:0 3px 10px #31106008}.gen-option:hover{background:#faf6ff;border-color:#7a47d8}.gen-option:focus-visible{outline:3px solid #7b47dd;outline-offset:2px}.gen-option:disabled{opacity:.65;cursor:not-allowed}.gen-option-label{font-weight:750}.gen-track{background:#ebeef8;border-radius:999px;height:15px;overflow:hidden}.gen-fill{height:100%;display:block;border-radius:999px;background:linear-gradient(90deg,#8c54f0,#2c9bd7)}.gen-percent{text-align:right;font-variant-numeric:tabular-nums;color:#5636a1;font-weight:800}.gen-status{background:#f7f4ff;border:1px solid #e6dbff;border-radius:14px;padding:13px 16px;color:#3c3461;min-height:61px;margin-top:10px}.gen-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:15px}.gen-actions button{background:#5b2bb6;color:white;border:none;border-radius:13px;padding:11px 16px;font-weight:800;cursor:pointer}.gen-actions button.secondary{background:#e9e3f8;color:#472487}.gen-progress{font-weight:800;color:#6945a6}.gen-footnote{font-size:.87rem;color:#60647f;margin-top:16px}.gen-detail{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.gen-tag{display:inline-block;border-radius:999px;padding:6px 10px;background:#e9e2ff;color:#5425ad;font-size:.82rem;font-weight:800}.gen-steps{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.gen-step{border-radius:999px;padding:5px 9px;background:#f1eff8;color:#746d89;font-size:.82rem;font-weight:750}.gen-step.current{background:#e4d5ff;color:#5125ad}.gen-step.done{background:#dff6e9;color:#22694a}@media(max-width:700px){.gen-option{grid-template-columns:1fr 70px;gap:5px}.gen-track{grid-column:1/-1;grid-row:2}.gen-percent{grid-column:2;grid-row:1}.gen-option-label{grid-column:1;grid-row:1}}
+</style></head>
+<body data-block="03" data-page="08-generacion-actividad" data-root="../../"><header><div class="top"><a class="brand" href="../../index.html">UNIDAD 8</a><span class="crumb">Bloque 3 · Funcionamiento de un LLM</span><a class="header-return" href="../../bloque-03/index.html">← Índice del bloque</a></div></header>
+<div class="layout"><main><section class="card gen-lab"><span class="tag">Bloque 3 · Página 9 de 10 · Actividad interactiva</span><h1>Construyamos una respuesta token por token</h1><p class="sub">Escoge una continuación en cada paso: verás cómo cambia la lista de candidatos y cómo se construye una oración que tenga sentido.</p>
+<div class="gen-intro"><strong>¿Qué simula este laboratorio?</strong> Un LLM genera la salida paso a paso. Las probabilidades son ejemplos didácticos, no cálculos de un modelo real. Aquí mostramos palabras o expresiones como unidades visuales; un token real no siempre equivale a una palabra.</div>
+<div class="gen-detail"><span class="gen-tag" id="stageName">Paso 1 · Acción</span><span class="gen-progress" id="stageCounter">0 / 3 elecciones</span></div>
+<div aria-live="polite" class="gen-sentence" id="builtText"></div>
+<div aria-label="Progreso de la generación" class="gen-steps" id="steps"></div>
+<h2 id="chooseTitle">¿Cuál será la siguiente continuación?</h2><div class="gen-candidates" id="candidateButtons"></div>
+<div aria-live="polite" class="gen-status" id="feedback" role="status"></div>
+<div class="gen-actions"><button id="retry" onclick="resetActivity()" type="button">Reiniciar con otras posibilidades</button><button class="secondary" id="auto" onclick="sampleNext()" type="button">Elegir según probabilidades</button></div>
+<p class="gen-footnote"><b>Para explicar en clase:</b> la selección de una continuación cambia el contexto de la siguiente predicción. El LLM real puntúa tokens de su vocabulario y no tiene un árbol fijo de opciones como este simulador.</p></section>
+<nav class="foot"><a class="btn secondary" href="07b-logits-softmax.html">← Infografía anterior</a><a class="btn" href="09-comparar-respuestas.html">Siguiente →</a></nav></main></div>
+
+<script>
+'use strict';
+const prefix='Había una vez un robot que quería aprender a';
+const tree={
+  first:[{t:'pintar',p:0.45,key:'pintar'},{t:'cocinar',p:0.35,key:'cocinar'},{t:'bailar',p:0.20,key:'bailar'}],
+  middle:{
+    pintar:[{t:'un paisaje',p:0.50},{t:'un retrato',p:0.30},{t:'murales',p:0.20}],
+    cocinar:[{t:'una sopa',p:0.45},{t:'galletas',p:0.35},{t:'un pastel',p:0.20}],
+    bailar:[{t:'salsa',p:0.50},{t:'tango',p:0.30},{t:'con sus amigos',p:0.20}]
+  },
+  ending:[{t:'con mucha paciencia',p:0.50},{t:'todos los días',p:0.30},{t:'para divertirse',p:0.20}]
+};
+let picks=[];
+const el=id=>document.getElementById(id);
+function currentOptions(){return picks.length===0?tree.first:picks.length===1?tree.middle[picks[0]]:picks.length===2?tree.ending:[];}
+function choose(i){const opts=currentOptions();if(i<0||i>=opts.length)return;picks.push(opts[i].t);render();}
+function sampleNext(){const opts=currentOptions();if(!opts.length)return;let r=Math.random(),a=0;for(let i=0;i<opts.length;i++){a+=opts[i].p;if(r<a){choose(i);return}}choose(opts.length-1)}
+function resetActivity(){picks=[];render();}
+function render(){
+  const count=picks.length,options=currentOptions();
+  el('stageCounter').textContent=`${count} / 3 elecciones`;
+  el('stageName').textContent=['Paso 1 · Acción','Paso 2 · Complemento','Paso 3 · Continuación','Oración completada'][count];
+  el('builtText').innerHTML=`<span class="gen-original">${prefix}</span>`+picks.map((t,i)=>` <span class="gen-token">${t}</span>`).join('')+(count===3?'<span class="gen-end">.</span>':' <span style="color:#8660c5">…</span>');
+  el('steps').innerHTML=['Acción','Complemento','Cierre'].map((s,i)=>`<span class="gen-step ${i<count?'done':i===count?'current':''}">${i+1}. ${s}</span>`).join('');
+  el('chooseTitle').textContent=count===3?'¡Oración completa!':'Elige una continuación posible:';
+  el('candidateButtons').innerHTML=options.map((o,i)=>`<button type="button" class="gen-option" onclick="choose(${i})" aria-label="Seleccionar ${o.t}, probabilidad ilustrativa ${Math.round(o.p*100)} por ciento"><span class="gen-option-label">${o.t}</span><span class="gen-track"><span class="gen-fill" style="width:${o.p*100}%"></span></span><span class="gen-percent">${Math.round(o.p*100)} %</span></button>`).join('');
+  el('auto').style.display=count===3?'none':'';
+  el('feedback').innerHTML=count===3?'<strong>Terminaste.</strong> Las tres elecciones forman una oración coherente. Un LLM real volvería a procesar el contexto para predecir el siguiente token hasta completar la respuesta.':count===0?'Selecciona una opción o usa «Elegir según probabilidades» para simular el muestreo.':`<strong>¡Bien!</strong> La respuesta se amplió con «${picks[count-1]}». Ahora los candidatos se calculan para el nuevo contexto, no para el anterior.`;
+}
+resetActivity();
+</script></body></html>

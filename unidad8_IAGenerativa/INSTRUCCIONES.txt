@@ -1,0 +1,1 @@
+Extraer este ZIP dentro de la carpeta Unidad_8_Modular y conservar rutas. Se reemplaza bloque-03/actividades/attention.html y se copian los dos PNG en bloque-04/infografias/. No se modifican menus ni otras paginas.

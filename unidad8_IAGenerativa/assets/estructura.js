@@ -93,6 +93,11 @@ window.UNIDAD8={
         "type": "infografia"
       },
       {
+        "slug": "07b-logits-softmax",
+        "title": "Logits y softmax",
+        "type": "infografia"
+      },
+      {
         "slug": "08-generacion-actividad",
         "title": "Simulación de generación",
         "type": "actividad"
