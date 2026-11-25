@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Logits y softmax · Unidad 8</title><link href="../../assets/estilos.css" rel="stylesheet"/><style>
-.conceptos-logits{color:#213251;font-size:1rem;line-height:1.65}.conceptos-logits .lead{font-size:1.08rem;background:#eef3fe;border-left:5px solid #5367c9;border-radius:8px;padding:17px 20px;margin:16px 0 22px}.concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.concept{padding:18px 20px;border:1px solid #dbe3f4;border-radius:14px;background:#f8faff}.concept:nth-child(2){background:#effaf7;border-color:#bee4dc}.concept h2,.pasos h2{font-size:1.3rem;margin:0 0 10px;color:#183878}.concept p{margin:8px 0}.pasos{margin:24px 0;padding:18px 20px;border-radius:14px;border:1px solid #dee4f1}.table-scroll{overflow-x:auto}.conceptos-logits table{width:100%;border-collapse:collapse;margin:14px 0}.conceptos-logits th,.conceptos-logits td{border-bottom:1px solid #dce4f4;text-align:left;padding:10px}.conceptos-logits th{background:#eef3ff}.flowline{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:18px 0}.flowline span:nth-child(odd){background:#edf1fa;padding:7px 10px;border-radius:8px;font-weight:700;font-size:.88rem}.note{background:#fff8ea;border-radius:9px;padding:14px 16px}.subheading{margin:24px 0 12px;color:#183878;font-size:1.25rem}@media(max-width:720px){.concept-grid{grid-template-columns:1fr}.concept{padding:15px}.pasos{padding:14px}}
-</style></head><body data-block="03" data-page="07b-logits-softmax" data-root="../../"><header><div class="top"><a class="brand" href="../../index.html">UNIDAD 8</a><span class="crumb">Bloque 3 · Funcionamiento de un LLM</span><a class="header-return" href="../../bloque-03/index.html">← Índice del bloque</a></div></header><div class="layout"><main><section class="card"><span class="tag">Bloque 3 · Página 8 de 10</span><h1>Logits y softmax</h1>
-<div class="conceptos-logits">
-<p class="lead">Antes de generar el siguiente token, el LLM asigna una puntuación a cada token posible. <strong>Esas puntuaciones son los logits.</strong> Después aplica <strong>softmax</strong> para convertirlas en probabilidades.</p>
-<div class="concept-grid">
-<div class="concept"><h2>1. ¿Qué son los logits?</h2><p>Son <strong>puntuaciones numéricas sin normalizar</strong> que produce el modelo para cada token candidato. Indican qué continuación favorece el modelo, <strong>pero aún no son probabilidades</strong>.</p><p>Un logit puede ser positivo, cero o negativo. Cuanto mayor sea en comparación con los demás, mayor será la probabilidad que recibirá después de softmax.</p></div>
-<div class="concept"><h2>2. ¿Qué es softmax?</h2><p>Es una <strong>función matemática</strong> que toma todos los logits y los transforma en <strong>probabilidades entre 0 y 1</strong> cuya suma es 1 (100 %).</p><p>Así podemos interpretar qué tan probable resulta cada token según el modelo. Softmax <strong>no selecciona por sí sola</strong> el token; la selección ocurre en un paso posterior.</p></div>
-</div>
-<div class="pasos"><h2>3. Ejemplo: «El gato está en el …»</h2><p>Supongamos que el modelo considera únicamente tres posibles continuaciones:</p>
-<div class="table-scroll"><table><thead><tr><th>Token candidato</th><th>Logit (puntuación)</th><th>Probabilidad tras softmax</th></tr></thead><tbody><tr><td>sofá</td><td>2,0</td><td>66,5 %</td></tr><tr><td>jardín</td><td>1,0</td><td>24,5 %</td></tr><tr><td>techo</td><td>0,0</td><td>9,0 %</td></tr></tbody><tfoot><tr><th colspan="2">Total</th><th>100 %</th></tr></tfoot></table></div>
-<p><strong>Interpretación:</strong> «sofá» tiene el logit más alto y, por eso, también la probabilidad más alta. El modelo puede elegir «sofá» si utiliza la selección del token más probable, pero también podría elegir otro token si usa muestreo.</p>
-<div class="flowline"><span>Contexto</span><span>→</span><span>Logits</span><span>→</span><span>Softmax</span><span>→</span><span>Selección del token</span><span>→</span><span>Repetir</span></div>
-<p class="note"><strong>Para la certificación:</strong> recuerda la diferencia: <strong>logits = puntuaciones sin normalizar</strong>; <strong>softmax = conversión de esas puntuaciones en probabilidades</strong>. El proceso ocurre durante la <strong>inferencia</strong>, al generar tokens.</p>
-</div>
-</div>
-<h2 class="subheading">Infografía de resumen</h2>
-<img alt="Resumen gráfico: logits como puntuaciones de tokens y softmax como conversión a probabilidades" class="infographic" loading="eager" src="../infografias/07b-logits-softmax.png"/></section><nav class="foot"><a class="btn secondary" href="07-generacion.html">← Anterior</a><a class="btn" href="08-generacion-actividad.html">Siguiente →</a></nav></main></div></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logits y softmax · Unidad 8</title>
+  <link rel="stylesheet" href="../../assets/estilos.css">
+  <style>
+    .logits p { margin: .55rem 0; }
+    .logits table { width: 100%; max-width: 26rem; border-collapse: collapse; margin: .8rem 0; }
+    .logits caption { text-align: left; font-weight: 700; margin-bottom: .35rem; }
+    .logits th, .logits td { padding: .4rem .5rem; text-align: right; border-bottom: 1px solid #dce4f4; }
+    .logits th:first-child, .logits td:first-child { text-align: left; }
+    .logits thead { background: #eef3ff; color: #183878; }
+  </style>
+</head>
+<body data-block="03" data-page="07b-logits-softmax" data-root="../../">
+  <header>
+    <div class="top">
+      <a class="brand" href="../../index.html">UNIDAD 8</a>
+      <span class="crumb">Bloque 3 · Funcionamiento de un LLM</span>
+      <a class="header-return" href="../../bloque-03/index.html">← Índice del bloque</a>
+    </div>
+  </header>
+  <div class="layout">
+    <main>
+      <section class="card logits">
+        <span class="tag">Bloque 3 · Página 8 de 10</span>
+        <h1>Logits y softmax</h1>
+        <p><strong>Logits.</strong> Puntuaciones que el modelo asigna a los posibles siguientes tokens.</p>
+        <p><strong>Softmax.</strong> Convierte esas puntuaciones en probabilidades que suman 100 %.</p>
+        <table>
+          <caption>Ejemplo con tres candidatos: «El gato está en el …»</caption>
+          <thead>
+            <tr><th scope="col">Token</th><th scope="col">Logit</th><th scope="col">Probabilidad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>sofá</td><td>2,0</td><td>66,5 %</td></tr>
+            <tr><td>jardín</td><td>1,0</td><td>24,5 %</td></tr>
+            <tr><td>techo</td><td>0,0</td><td>9,0 %</td></tr>
+          </tbody>
+        </table>
+        <p>«Sofá» es el más probable. La elección del token ocurre después.</p>
+      </section>
+      <nav class="foot">
+        <a class="btn secondary" href="07-generacion.html">← Anterior</a>
+        <a class="btn" href="08-generacion-actividad.html">Siguiente →</a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
